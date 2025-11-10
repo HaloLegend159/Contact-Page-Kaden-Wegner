@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SkyGUARD — Professional Drone Roof Inspections</title>
-  <meta name="description" content="Professional drone roof inspections, condition reports, and insurance-ready documentation for residential and commercial properties in the Omaha area." />
+  <meta name="description" content="Professional drone roof inspections, condition reports, and documentation for residential and commercial properties in the Omaha area." />
 
-  <!-- Font (performance: single family, 3 weights) -->
+  <!-- Font (one family, 3 weights) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     /* -----------------------------------------------------------
-       DESIGN SYSTEM — darker monochrome with single blue accent
-       Spacing: 8/16/24/32/48/64
+       DESIGN SYSTEM — darker monochrome with one blue accent
+       Spacing scale: 8 / 16 / 24 / 32 / 48 / 64
     ----------------------------------------------------------- */
     :root{
-      --accent:#0A5CD8;                 /* darker, confident blue */
-      --bg-dark:#0B0B0C;                /* hero band */
-      --bg-mid:#111316;                 /* dark section */
-      --bg-light:#ECEFF2;               /* light section (darker than before) */
-      --ink-dark:#0D0F12;               /* dark text on light */
-      --ink-light:#F3F4F6;              /* light text on dark */
+      --accent:#0A5CD8;                  /* brand blue (darker) */
+      --bg-dark:#0B0B0C;                 /* hero band */
+      --bg-mid:#0F1114;                  /* darker section */
+      --bg-light:#E9EDF1;                /* page background */
+      --ink-dark:#0D0F12;                /* dark text on light */
+      --ink-light:#F3F4F6;               /* light text on dark */
       --muted:#6B7280;
-      --border-light:#D9DEE5;
-      --border-dark:#22262B;
+      --border-light:#D3DAE2;
+      --border-dark:#1F242A;
 
       --maxw:1200px;
       --radius:16px;
@@ -45,7 +45,7 @@
     }
     a{color:inherit; text-decoration:none}
 
-    /* Grid container (12 cols) */
+    /* 12-col grid container */
     .container{
       max-width:var(--maxw);
       margin:0 auto;
@@ -68,13 +68,14 @@
       transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
       background:transparent; border-bottom:1px solid transparent;
     }
-    header.is-solid{background:rgba(236,239,242,.85); border-color:var(--border-light); box-shadow:var(--shadow-soft)}
+    header.is-solid{background:rgba(233,237,241,.88); border-color:var(--border-light); box-shadow:var(--shadow-soft)}
     .nav{
       max-width:var(--maxw); margin:0 auto; padding:16px 24px;
       display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px;
     }
     .brand{display:flex; align-items:center; gap:12px}
-    .brand img{width:34px; height:34px; object-fit:contain}
+    .brand img{width:48px; height:48px; object-fit:contain} /* bigger logo */
+    @media (max-width:640px){ .brand img{width:40px; height:40px} }
     .brand .name{font-weight:700; letter-spacing:.2px}
     .nav-links{display:flex; gap:24px; justify-content:center}
     .nav-cta{justify-self:end}
@@ -102,11 +103,11 @@
     .hero__text{grid-column:span 7}
     .hero__media{grid-column:span 5; justify-self:end}
     .hero__card{background:#fff; color:var(--ink-dark); border:1px solid var(--border-light); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; display:flex; align-items:center; gap:16px; width:min(520px,100%)}
-    .hero__card img{width:96px; height:96px; border-radius:14px; object-fit:cover} /* FULL COLOR */
+    .hero__card img{width:96px; height:96px; border-radius:14px; object-fit:cover}
 
     /* Credibility badges */
-    .cred{grid-column:1 / -1; display:flex; gap:32px; flex-wrap:wrap; align-items:center; opacity:.9}
-    .cred .badge{display:flex; align-items:center; gap:12px; color:inherit; padding:8px 12px; border:1px solid currentColor; border-radius:12px; font-size:14px; opacity:.85}
+    .cred{grid-column:1 / -1; display:flex; gap:32px; flex-wrap:wrap; align-items:center; opacity:.92}
+    .cred .badge{display:flex; align-items:center; gap:12px; color:inherit; padding:8px 12px; border:1px solid currentColor; border-radius:12px; font-size:14px; opacity:.88}
 
     /* Cards grid */
     .cards{grid-column:1 / -1; display:grid; gap:24px}
@@ -118,6 +119,17 @@
     .timeline{grid-column:1 / -1; display:grid; gap:24px}
     @media (min-width:900px){.timeline{grid-template-columns:repeat(4,1fr)}}
     .step{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-soft)}
+
+    /* Examples gallery */
+    .examples{grid-column:1 / -1; display:grid; gap:24px}
+    @media (min-width:900px){.examples{grid-template-columns:repeat(2,1fr)}}
+    .example{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow-soft)}
+    .example img{width:100%; height:auto; border-radius:12px; cursor:pointer}
+
+    /* Lightbox */
+    .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:999}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:90vw; max-height:90vh; border-radius:12px}
 
     /* Contact */
     .contact-left{grid-column:span 6}
@@ -132,7 +144,7 @@
     .form-legal{font-size:14px; color:var(--muted)}
 
     /* Footer */
-    footer{border-top:1px solid var(--border-light); padding:32px 24px; background:#E7EBF0}
+    footer{border-top:1px solid var(--border-light); padding:32px 24px; background:#E1E6EC}
     .footer-grid{max-width:var(--maxw); margin:0 auto; display:grid; gap:24px; grid-template-columns:repeat(12,1fr)}
     .foot-col{grid-column:span 3}
     .foot-legal{grid-column:1 / -1; color:#5b626d}
@@ -145,18 +157,19 @@
 </head>
 <body>
 
-  <!-- HEADER (logo slot added) -->
+  <!-- HEADER -->
   <header id="siteHeader">
     <nav class="nav">
       <div class="brand">
-        <!-- 🔧 EDIT ME: your logo path -->
-        <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo" width="68" height="68" />
+        <!-- Logo (bigger) -->
+        <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo" width="96" height="96" />
         <div class="name">SkyGUARD</div>
       </div>
       <div class="nav-links" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
-        <a href="#work">Recent Work</a>
+        <a href="#examples">Report Examples</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
@@ -182,7 +195,7 @@
           <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner — SkyGUARD" width="192" height="192" loading="eager" />
           <div>
             <div style="font-weight:700">Direct Line</div>
-            <div class="muted" style="margin-bottom:12px">Mon–Fri 8:00–17:00 (Varies seasonally with daylight)</div>
+            <div class="muted" style="margin-bottom:12px">Mon–Fri 8:00–17:00 (varies seasonally with daylight)</div>
             <div style="display:flex; gap:12px; flex-wrap:wrap">
               <a class="btn btn-primary" href="tel:+15312339962">Call</a>
               <a class="btn btn-ghost" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
@@ -199,7 +212,7 @@
     </div>
   </section>
 
-  <!-- WHAT'S INCLUDED (cleaned—no gray boxes/icons) -->
+  <!-- WHAT'S INCLUDED (clean: no icon boxes) -->
   <section id="services" class="section light">
     <div class="container">
       <div class="reveal" style="grid-column:1 / -1">
@@ -221,12 +234,12 @@
           <p>Clear findings plus recommended next actions aligned to your goals (repair, replace, claim).</p>
         </article>
         <article class="card reveal">
-          <h3>Insurance-Ready Evidence</h3>
+          <h3>Evidence Package</h3>
           <p>Labeled highlights plus a link to all unannotated originals for independent review.</p>
         </article>
         <article class="card reveal">
           <h3>Fast Delivery</h3>
-          <p>Turnaround measured in hours; secure online delivery with simple sharing.</p>
+          <p>Turnaround measured in hours; shareable download link for report and photos.</p>
         </article>
         <article class="card reveal">
           <h3>Commercial & Residential</h3>
@@ -244,28 +257,53 @@
         <div class="step reveal"><strong>1. Schedule</strong><p class="muted">Pick a time; confirm access and restrictions.</p></div>
         <div class="step reveal"><strong>2. Capture</strong><p class="muted">On-site flight plan; safe, consistent angles.</p></div>
         <div class="step reveal"><strong>3. Review</strong><p class="muted">Sort, label, and summarize findings.</p></div>
-        <div class="step reveal"><strong>4. Deliver</strong><p class="muted">Secure link with originals and report.</p></div>
+        <div class="step reveal"><strong>4. Deliver</strong><p class="muted">Shareable download link with originals and report.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- RECENT WORK (renamed from Case Studies) -->
-  <section id="work" class="section light">
+  <!-- REPORT EXAMPLES (click to enlarge) -->
+  <section id="examples" class="section light">
     <div class="container">
-      <div class="reveal" style="grid-column:1 / -1"><h2>Recent Work</h2></div>
-      <div class="cards">
-        <article class="card reveal">
-          <h3>Commercial Roof • 120k sq ft</h3>
-          <p><strong>2-day turnaround</strong> from scheduling to delivery.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Hail Event Documentation</h3>
-          <p><strong>Insurance-approved set</strong> with labeled evidence.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Residential Duplex</h3>
-          <p><strong>Actionable clarity</strong> for repair vs. replace decisions.</p>
-        </article>
+      <div class="reveal" style="grid-column:1 / -1">
+        <h2>Report Examples</h2>
+        <p class="muted">A peek at how deliverables are structured—clear, consistent, and easy to review.</p>
+      </div>
+      <div class="examples">
+        <figure class="example reveal">
+          <img src="assets/ResidentialExample1.png" alt="Residential report example cover page" width="1200" height="1600" loading="lazy" />
+          <figcaption class="muted">Residential — Cover & contents</figcaption>
+        </figure>
+        <figure class="example reveal">
+          <img src="assets/ResidentialExample2.png" alt="Residential report example damage detail page" width="1200" height="1600" loading="lazy" />
+          <figcaption class="muted">Residential — Damage details</figcaption>
+        </figure>
+        <figure class="example reveal">
+          <img src="assets/CommercialExample1.png" alt="Commercial report example cover page" width="1200" height="1600" loading="lazy" />
+          <figcaption class="muted">Commercial — Cover & contents</figcaption>
+        </figure>
+        <figure class="example reveal">
+          <img src="assets/CommercialExample2.png" alt="Commercial report example detail page" width="1200" height="1600" loading="lazy" />
+          <figcaption class="muted">Commercial — Detail page</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+      <img id="lightboxImg" alt="">
+    </div>
+  </section>
+
+  <!-- FAQ (replaces the old “Recent Work”) -->
+  <section id="faq" class="section light" style="background:#F7F9FB">
+    <div class="container">
+      <div class="reveal" style="grid-column:1 / -1"><h2>FAQ</h2></div>
+      <div style="grid-column:1 / -1">
+        <details class="reveal"><summary>Are you licensed and insured?</summary><p>Yes. FAA Part 107 certified and commercially insured.</p></details>
+        <details class="reveal"><summary>How fast can you deliver?</summary><p>Often same-day; most jobs within 24–48 hours.</p></details>
+        <details class="reveal"><summary>What’s your service area?</summary><p>Within a 50-mile radius of central Omaha.</p></details>
+        <details class="reveal"><summary>How do I receive the files?</summary><p>Via a shareable download link to the full photo set and the report PDF.</p></details>
       </div>
     </div>
   </section>
@@ -290,7 +328,8 @@
             <div class="row">
               <div>
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" placeholder="(531) 233-9962" />
+                <!-- example updated per request -->
+                <input id="phone" name="phone" placeholder="123 456 7890" />
               </div>
               <div>
                 <label for="service">Service</label>
@@ -409,6 +448,18 @@
       const body = encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
+
+    // Lightbox for examples
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('#examples img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lb.classList.add('open');
+      });
+    });
+    lb.addEventListener('click', ()=> lb.classList.remove('open'));
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
