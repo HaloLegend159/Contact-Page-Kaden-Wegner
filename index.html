@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkyGUARD — Contact</title>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="SkyGUARD drone inspections and roofing documentation. Contact us for residential and commercial roof imaging, condition summaries, and damage documentation." />
+  <meta name="theme-color" content="#0b132b" />
+
+  <!-- Favicon (🔧 EDIT ME: drop a 32x32 icon at /assets/favicon.png or remove) -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <style>
+    :root{
+      --bg:#0b132b;       /* deep navy */
+      --card:#1c2541;     /* card background */
+      --acc:#5bc0be;      /* accent teal */
+      --acc-2:#3a86ff;    /* secondary accent */
+      --text:#e6eefc;     /* primary text */
+      --muted:#b8c1d9;    /* muted text */
+      --ring: rgba(91,192,190,.45);
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color:var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, #0e1a34 100%);
+    }
+    a{color:var(--acc); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width:1100px; margin:0 auto; padding:24px;
+    }
+    /* Hero */
+    .hero{
+      display:grid; gap:20px; align-items:center;
+      grid-template-columns: 120px 1fr;
+      padding:18px; background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+      backdrop-filter: blur(6px);
+    }
+    .hero img{
+      width:120px; height:120px; object-fit:cover; border-radius:16px;
+      border:2px solid rgba(255,255,255,.08);
+    }
+    .brand h1{margin:0 0 6px 0; font-size:clamp(26px, 3.2vw, 38px); letter-spacing:.4px}
+    .brand p{margin:0; color:var(--muted)}
+    .cta-row{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:12px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(91,192,190,.18), rgba(91,192,190,.08));
+      color:var(--text); text-decoration:none; font-weight:600;
+      box-shadow: 0 6px 16px rgba(0,0,0,.25);
+      transition: transform .05s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.3)}
+    .btn.secondary{background:linear-gradient(180deg, rgba(58,134,255,.20), rgba(58,134,255,.06))}
+    /* Grid */
+    .grid{display:grid; gap:22px; margin-top:22px}
+    @media (min-width:900px){
+      .grid{grid-template-columns: 1.1fr .9fr;}
+    }
+    .card{
+      background:var(--card); border:1px solid rgba(255,255,255,.06);
+      border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+    }
+    .card h2{margin:0 0 12px 0; font-size:22px}
+    .list{display:grid; gap:10px}
+    .row{
+      display:flex; gap:12px; align-items:flex-start; padding:10px 12px;
+      background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06);
+      border-radius:12px;
+    }
+    .muted{color:var(--muted)}
+    /* Contact form */
+    form{display:grid; gap:12px}
+    label{font-weight:600}
+    input, textarea, select{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.1);
+      background:#0f1730; color:var(--text); outline:none;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color:var(--acc); box-shadow: 0 0 0 4px var(--ring);
+    }
+    textarea{min-height:140px; resize:vertical}
+    .inline{
+      display:grid; gap:12px;
+    }
+    @media (min-width:700px){
+      .inline{grid-template-columns: 1fr 1fr;}
+    }
+    .small{font-size:.92rem}
+    /* Footer */
+    footer{
+      margin:36px auto 18px; max-width:1100px; padding:14px 24px;
+      color:var(--muted); text-align:center;
+    }
+    .copy{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:10px; background:#0f1730; border:1px solid rgba(255,255,255,.06);
+      cursor:pointer; font-size:.9rem;
+    }
+    .map{
+      aspect-ratio: 16/10; width:100%; border:0; border-radius:12px; overflow:hidden;
+      background:#0f1730;
+    }
+    .tag{
+      display:inline-block; padding:6px 10px; border-radius:999px; font-size:.8rem;
+      color:#0b132b; background:linear-gradient(90deg, var(--acc), var(--acc-2));
+      font-weight:700; letter-spacing:.2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" aria-label="SkyGUARD Contact">
+      <!-- 🔧 EDIT ME: Replace with your image path or keep as-is if you upload to /assets/skyguard-headshot.jpg -->
+      <img src="assets/skyguard-headshot.jpg" alt="SkyGUARD contact — representative headshot" />
+
+      <div class="brand">
+        <!-- 🔧 EDIT ME: Company name & tagline -->
+        <h1>SkyGUARD <span class="tag">Drone Imaging</span></h1>
+        <p>High-resolution residential &amp; commercial roof inspections • Damage documentation • Insurance-ready reports</p>
+
+        <div class="cta-row">
+          <!-- 🔧 EDIT ME: Your phone number & email -->
+          <a class="btn" href="tel:+1-402-555-1234" id="callBtn">📞 Call: (402) 555-1234</a>
+          <a class="btn secondary" href="mailto:CONTACT@SKYGUARD-SERVICES.COM?subject=SkyGUARD%20Inquiry">✉️ Email: contact@skyguard-services.com</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN GRID -->
+    <section class="grid" aria-label="Contact details and message form">
+      <!-- Left column -->
+      <div class="card">
+        <h2>Get a Quote</h2>
+        <p class="muted small">Tell us about your roof or property and we’ll get back to you fast.</p>
+
+        <!-- CONTACT FORM -->
+        <!-- This uses a simple mailto fallback via JavaScript so it works on GitHub Pages with no backend. -->
+        <!-- 🔧 EDIT ME: Put your email in data-to below. -->
+        <form id="contactForm" data-to="contact@skyguard-services.com">
+          <div class="inline">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" placeholder="(###) ###-####" />
+            </div>
+          </div>
+
+          <div class="inline">
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Roof Inspection — Residential</option>
+                <option>Roof Inspection — Commercial</option>
+                <option>Storm Damage Documentation</option>
+                <option>Insurance/Claim Photoset</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="address">Property Address</label>
+            <input id="address" name="address" placeholder="Street, City, State" />
+          </div>
+
+          <div>
+            <label for="message">Details</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need—age of roof, leaks, wind/hail event date, etc."></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send Message</button>
+          <span class="muted small">Submitting will open your email app with the message pre-filled.</span>
+        </form>
+      </div>
+
+      <!-- Right column -->
+      <div class="card">
+        <h2>Contact Information</h2>
+        <div class="list" role="list">
+          <!-- 🔧 EDIT ME: Your official contact info -->
+          <div class="row" role="listitem">
+            <div>📍</div>
+            <div>
+              <strong>Service Area</strong><br />
+              Omaha &amp; Bellevue, NE • Council Bluffs, IA
+            </div>
+          </div>
+
+          <div class="row" role="listitem">
+            <div>🕒</div>
+            <div>
+              <strong>Hours</strong><br />
+              Mon–Sat: 8:00 AM – 6:00 PM • Sun by appointment
+            </div>
+          </div>
+
+          <div class="row" role="listitem">
+            <div>📞</div>
+            <div>
+              <strong>Phone</strong><br />
+              <code id="phoneText">(402) 555-1234</code>
+              <button class="copy" type="button" data-copy="#phoneText">Copy</button>
+            </div>
+          </div>
+
+          <div class="row" role="listitem">
+            <div>✉️</div>
+            <div>
+              <strong>Email</strong><br />
+              <code id="emailText">contact@skyguard-services.com</code>
+              <button class="copy" type="button" data-copy="#emailText">Copy</button>
+            </div>
+          </div>
+
+          <!-- 🔧 EDIT ME: Social links (remove what you don’t use) -->
+          <div class="row" role="listitem">
+            <div>🔗</div>
+            <div>
+              <strong>Links</strong><br />
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a> •
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a> •
+              <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="margin-top:16px;">Map</h2>
+        <!-- 🔧 EDIT ME: Replace the src with your Google Maps embed for your city/office -->
+        <iframe
+          class="map"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30477.9806!2d-95.9901!3d41.1544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938d4c7b5a9b7b%3A0x0000000000000000!2sBellevue%2C%20NE!5e0!3m2!1sen!2sus!4v0000000000">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Services snapshot -->
+    <section class="card" style="margin-top:22px">
+      <h2>What You Get</h2>
+      <div class="list">
+        <div class="row"><div>🛰️</div><div><strong>Top-down &amp; side-angle aerials</strong> with each slope documented.</div></div>
+        <div class="row"><div>🔎</div><div><strong>Close-ups of metals &amp; penetrations</strong> (vents, flashings, chimneys, skylights).</div></div>
+        <div class="row"><div>📑</div><div><strong>Roof condition summary</strong> and recommended next steps based on current state.</div></div>
+        <div class="row"><div>🧭</div><div><strong>Unannotated photo link</strong> plus labeled highlights for fast review.</div></div>
+        <div class="row"><div>🛡️</div><div><strong>Insurance-ready evidence</strong> for immediate issues or future proof after a storm.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      <!-- 🔧 EDIT ME: Legal line / license / registration -->
+      © <span id="year"></span> SkyGUARD • All rights reserved
+    </footer>
+  </div>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy buttons
+    document.querySelectorAll('.copy').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const sel = btn.getAttribute('data-copy');
+        const el = document.querySelector(sel);
+        if(!el) return;
+        const text = el.textContent.trim();
+        navigator.clipboard.writeText(text).then(()=>{
+          const prev = btn.textContent;
+          btn.textContent = 'Copied ✔';
+          setTimeout(()=>btn.textContent = prev, 1200);
+        });
+      });
+    });
+
+    // Contact form -> opens mail client with a prefilled message (works on GitHub Pages)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const to = this.dataset.to || 'contact@skyguard-services.com'; // 🔧 EDIT ME if you changed it above
+      const data = new FormData(this);
+      const fields = {
+        Name: data.get('name') || '',
+        Phone: data.get('phone') || '',
+        Email: data.get('email') || '',
+        Service: data.get('service') || '',
+        Address: data.get('address') || '',
+        Details: data.get('message') || ''
+      };
+      const subject = encodeURIComponent('SkyGUARD Inquiry — ' + fields.Name);
+      const bodyLines = Object.entries(fields).map(([k,v]) => `${k}: ${v}`);
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
