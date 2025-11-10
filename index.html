@@ -4,258 +4,194 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SkyGUARD — Professional Drone Roof Inspections</title>
-  <meta name="description" content="SkyGUARD provides professional drone roof inspections, condition reports, and insurance-ready documentation for residential and commercial properties." />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Professional drone roof inspections, condition reports, and insurance-ready documentation for residential and commercial properties in the Omaha area." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SkyGUARD — Drone Roof Inspections" />
-  <meta property="og:description" content="Professional imaging and documentation for homes and commercial buildings." />
-  <meta property="og:type" content="website" />
-
-  <!-- Performance: fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- Font (performance: single family, 3 weights) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
     /* -----------------------------------------------------------
-       DESIGN SYSTEM (Monochrome with single accent)
-       Spacing: 8pt scale (8/16/24/32/48/64)
+       DESIGN SYSTEM — darker monochrome with single blue accent
+       Spacing: 8/16/24/32/48/64
     ----------------------------------------------------------- */
     :root{
-      /* Colors */
-      --accent: #0077FF;                 /* 🔧 EDIT ME if you have a brand blue */
-      --bg-dark: #0B0B0C;                /* hero on dark */
-      --bg-mid:  #111316;                /* dark sections */
-      --bg-light:#F7F8F9;                /* light sections */
-      --ink-dark:#0D0F12;                /* dark text on light */
-      --ink-light:#F3F4F6;               /* light text on dark */
-      --muted:   #6B7280;
-      --border-light:#E5E7EB;
+      --accent:#0A5CD8;                 /* darker, confident blue */
+      --bg-dark:#0B0B0C;                /* hero band */
+      --bg-mid:#111316;                 /* dark section */
+      --bg-light:#ECEFF2;               /* light section (darker than before) */
+      --ink-dark:#0D0F12;               /* dark text on light */
+      --ink-light:#F3F4F6;              /* light text on dark */
+      --muted:#6B7280;
+      --border-light:#D9DEE5;
       --border-dark:#22262B;
 
-      /* Layout */
-      --maxw: 1200px;
-      --radius: 16px;                    /* 2xl */
-      --shadow: 0 6px 20px rgba(13,15,18,0.08);
-      --shadow-soft: 0 2px 10px rgba(13,15,18,0.06);
+      --maxw:1200px;
+      --radius:16px;
+      --shadow:0 6px 20px rgba(13,15,18,.08);
+      --shadow-soft:0 2px 10px rgba(13,15,18,.06);
     }
 
-    /* Base */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg-light);
-      color: var(--ink-dark);
-      line-height: 1.6;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg-light);
+      color:var(--ink-dark);
+      line-height:1.6;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
     a{color:inherit; text-decoration:none}
 
-    /* 12-col grid container */
+    /* Grid container (12 cols) */
     .container{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 24px;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 24px; /* 24 */
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:24px;
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:24px;
     }
 
-    /* Typography scale */
-    h1{font-size: clamp(48px, 6vw, 64px); line-height:1.1; font-weight:700; margin:0 0 16px}
-    h2{font-size: clamp(32px, 4vw, 40px); line-height:1.2; font-weight:700; margin:0 0 12px}
+    /* Type scale */
+    h1{font-size:clamp(48px,6vw,64px);line-height:1.1;font-weight:700;margin:0 0 16px}
+    h2{font-size:clamp(32px,4vw,40px);line-height:1.2;font-weight:700;margin:0 0 12px}
     p{margin:0 0 16px}
     .muted{color:var(--muted)}
 
     /* Header / Nav */
     header{
-      position: sticky; top:0; z-index:100;
-      backdrop-filter: blur(10px);
-      transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
-      background: transparent;
-      border-bottom: 1px solid transparent;
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:blur(10px);
+      transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
+      background:transparent; border-bottom:1px solid transparent;
     }
-    header.is-solid{
-      background: rgba(247,248,249,0.9);
-      border-color: var(--border-light);
-      box-shadow: var(--shadow-soft);
-    }
+    header.is-solid{background:rgba(236,239,242,.85); border-color:var(--border-light); box-shadow:var(--shadow-soft)}
     .nav{
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 16px;
+      max-width:var(--maxw); margin:0 auto; padding:16px 24px;
+      display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:16px;
     }
-    .logo{font-weight:700; letter-spacing:.2px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{width:34px; height:34px; object-fit:contain}
+    .brand .name{font-weight:700; letter-spacing:.2px}
     .nav-links{display:flex; gap:24px; justify-content:center}
     .nav-cta{justify-self:end}
-    .nav a{position:relative; color:#111318}
+    .nav a{position:relative}
     .nav a::after{
       content:""; position:absolute; left:50%; transform:translateX(-50%);
-      bottom:-6px; height:2px; width:0; background:var(--accent);
-      transition: width .18s ease;
+      bottom:-6px; height:2px; width:0; background:var(--accent); transition:width .18s ease;
     }
     .nav a:hover::after{width:100%}
 
     /* Buttons */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 20px; border-radius:12px; font-weight:600; letter-spacing:.2px;
-      border:1px solid var(--border-light); transition: transform .05s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
-    }
-    .btn-primary{
-      background: var(--accent); color: white; border-color: transparent; box-shadow: var(--shadow);
-    }
-    .btn-primary:hover{transform:translateY(-1px); box-shadow: 0 10px 24px rgba(0,119,255,0.25)}
-    .btn-ghost{
-      background: transparent; color: var(--accent); border-color: var(--accent);
-    }
-    .btn-ghost:hover{transform:translateY(-1px); background: rgba(0,119,255,0.06)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 20px; border-radius:12px; font-weight:600; letter-spacing:.2px; border:1px solid var(--border-light); transition:transform .05s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease}
+    .btn-primary{background:var(--accent); color:#fff; border-color:transparent; box-shadow:var(--shadow)}
+    .btn-primary:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(10,92,216,.25)}
+    .btn-ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
+    .btn-ghost:hover{transform:translateY(-1px); background:rgba(10,92,216,.06)}
 
     /* Sections */
-    .section{padding: 64px 0}           /* 64 */
-    .dark{background: var(--bg-dark); color: var(--ink-light); border-bottom: 1px solid var(--border-dark)}
-    .mid {background: var(--bg-mid);  color: var(--ink-light); border-top: 1px solid var(--border-dark); border-bottom: 1px solid var(--border-dark)}
-    .light{background: var(--bg-light); color: var(--ink-dark); border-top: 1px solid var(--border-light)}
+    .section{padding:64px 0}
+    .dark{background:var(--bg-dark); color:var(--ink-light); border-bottom:1px solid var(--border-dark)}
+    .mid{background:var(--bg-mid); color:var(--ink-light); border-top:1px solid var(--border-dark); border-bottom:1px solid var(--border-dark)}
+    .light{background:var(--bg-light); color:var(--ink-dark); border-top:1px solid var(--border-light)}
 
-    /* Hero layout */
-    .hero__text{grid-column: span 7}
-    .hero__media{grid-column: span 5; justify-self:end}
-    .hero__card{
-      background:white; color:var(--ink-dark);
-      border:1px solid var(--border-light); border-radius: var(--radius); box-shadow: var(--shadow);
-      padding:24px; display:flex; align-items:center; gap:16px; width:min(520px,100%);
-    }
-    .hero__card img{
-      width:96px; height:96px; border-radius:14px; object-fit:cover; /* FULL COLOR on purpose */
-    }
+    /* Hero */
+    .hero__text{grid-column:span 7}
+    .hero__media{grid-column:span 5; justify-self:end}
+    .hero__card{background:#fff; color:var(--ink-dark); border:1px solid var(--border-light); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; display:flex; align-items:center; gap:16px; width:min(520px,100%)}
+    .hero__card img{width:96px; height:96px; border-radius:14px; object-fit:cover} /* FULL COLOR */
 
-    /* Credibility row */
-    .cred{grid-column: 1 / -1; display:flex; gap:32px; flex-wrap:wrap; align-items:center; opacity:.85}
-    .cred .badge{
-      display:flex; align-items:center; gap:12px; color:inherit; padding:8px 12px; border:1px solid currentColor; border-radius:12px; font-size:14px; opacity:.8
-    }
+    /* Credibility badges */
+    .cred{grid-column:1 / -1; display:flex; gap:32px; flex-wrap:wrap; align-items:center; opacity:.9}
+    .cred .badge{display:flex; align-items:center; gap:12px; color:inherit; padding:8px 12px; border:1px solid currentColor; border-radius:12px; font-size:14px; opacity:.85}
 
-    /* Cards grid (Services / Case studies) */
-    .cards{grid-column: 1 / -1; display:grid; gap:24px}
-    @media (min-width: 900px){ .cards{grid-template-columns: repeat(3, 1fr)} }
-    .card{
-      background: white; border:1px solid var(--border-light); border-radius: var(--radius); padding:24px; box-shadow: var(--shadow-soft);
-      transition: box-shadow .2s ease, border-color .2s ease, transform .05s ease;
-    }
-    .card:hover{border-color:#d6dae1; box-shadow: var(--shadow); transform: translateY(-1px)}
-    .card .icon{width:28px; height:28px; border-radius:8px; background:#F1F5F9; display:inline-block; margin-bottom:12px}
+    /* Cards grid */
+    .cards{grid-column:1 / -1; display:grid; gap:24px}
+    @media (min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-soft); transition:box-shadow .2s ease, border-color .2s ease, transform .05s ease}
+    .card:hover{border-color:#cdd4de; box-shadow:var(--shadow); transform:translateY(-1px)}
 
-    /* Process timeline */
+    /* Timeline */
     .timeline{grid-column:1 / -1; display:grid; gap:24px}
-    @media (min-width: 900px){ .timeline{grid-template-columns: repeat(4, 1fr)} }
-    .step{
-      background:white; border:1px solid var(--border-light); border-radius: var(--radius); padding:24px; box-shadow: var(--shadow-soft);
-    }
-
-    /* FAQ */
-    details{
-      background:white; border:1px solid var(--border-light); border-radius:12px; padding:16px 20px;
-    }
-    details + details{margin-top:12px}
-    summary{cursor:pointer; font-weight:600}
-    summary::marker{color:#c7cacf}
+    @media (min-width:900px){.timeline{grid-template-columns:repeat(4,1fr)}}
+    .step{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-soft)}
 
     /* Contact */
-    .contact-left{grid-column: span 6}
-    .contact-right{grid-column: span 6}
+    .contact-left{grid-column:span 6}
+    .contact-right{grid-column:span 6}
     form{display:grid; gap:16px}
     label{font-size:14px; font-weight:600}
-    input, select, textarea{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border-light); background:#fff; color:var(--ink-dark); outline:none;
-    }
-    input:focus, select:focus, textarea:focus{box-shadow:0 0 0 3px rgba(0,119,255,.15); border-color:#cfe1ff}
+    input,select,textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border-light); background:#fff; color:var(--ink-dark); outline:none}
+    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(10,92,216,.15); border-color:#cfe0ff}
     textarea{min-height:140px; resize:vertical}
     .row{display:grid; gap:16px}
-    @media (min-width: 760px){ .row{grid-template-columns: 1fr 1fr} }
-
+    @media (min-width:760px){.row{grid-template-columns:1fr 1fr}}
     .form-legal{font-size:14px; color:var(--muted)}
-    .success{display:none; padding:16px; border:1px solid #cfe1ff; background:#f4f9ff; border-radius:12px}
-    .success.show{display:block}
 
     /* Footer */
-    footer{border-top:1px solid var(--border-light); padding:32px 24px; background:#F2F4F7}
-    .footer-grid{max-width: var(--maxw); margin:0 auto; display:grid; gap:24px; grid-template-columns: repeat(12, 1fr)}
-    .foot-col{grid-column: span 3}
-    .foot-legal{grid-column: 1 / -1; color:#5b626d}
+    footer{border-top:1px solid var(--border-light); padding:32px 24px; background:#E7EBF0}
+    .footer-grid{max-width:var(--maxw); margin:0 auto; display:grid; gap:24px; grid-template-columns:repeat(12,1fr)}
+    .foot-col{grid-column:span 3}
+    .foot-legal{grid-column:1 / -1; color:#5b626d}
 
-    /* Motion: reveal on scroll (staggered) */
-    .reveal{opacity:0; transform: translateY(20px); transition: opacity .28s ease, transform .28s ease}
+    /* Motion: reveal on scroll */
+    .reveal{opacity:0; transform:translateY(20px); transition:opacity .28s ease, transform .28s ease}
     .reveal.in{opacity:1; transform:none}
-    @media (prefers-reduced-motion: reduce){
-      .reveal{opacity:1; transform:none}
-      .nav a::after{display:none}
-    }
+    @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none}.nav a::after{display:none}}
   </style>
 </head>
 <body>
 
-  <!-- =======================================
-       HEADER (sticky, transparent -> solid)
-  ======================================== -->
+  <!-- HEADER (logo slot added) -->
   <header id="siteHeader">
     <nav class="nav">
-      <div class="logo">SkyGUARD</div>
+      <div class="brand">
+        <!-- 🔧 EDIT ME: your logo path -->
+        <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo" width="68" height="68" />
+        <div class="name">SkyGUARD</div>
+      </div>
       <div class="nav-links" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
-        <a href="#cases">Case Studies</a>
+        <a href="#work">Recent Work</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav-cta">
-        <!-- 🔧 EDIT ME: phone number -->
-        <a class="btn btn-ghost" href="tel:+14025551234">Call (402) 555-1234</a>
+        <a class="btn btn-ghost" href="tel:+15312339962">Call (531) 233-9962</a>
       </div>
     </nav>
   </header>
 
-  <!-- =======================================
-       HERO (light over dark band, strong value)
-  ======================================== -->
+  <!-- HERO -->
   <section class="section dark">
     <div class="container">
-      <div class="hero__text reveal" style="grid-column: 1 / span 7">
-        <h1>Roof inspections, done right—fast, documented, insured.</h1> <!-- 🔧 EDIT ME -->
-        <p class="muted" style="color:var(--ink-light)">
-          Professional drone surveys and condition reports for homes and commercial buildings. Evidence-grade photosets, clear summaries, and rapid turnaround.
-        </p> <!-- 🔧 EDIT ME -->
+      <div class="hero__text reveal" style="grid-column:1 / span 7">
+        <h1>Roof inspections, done right—fast, documented, insured.</h1>
+        <p class="muted" style="color:var(--ink-light)">Professional drone surveys and condition reports for homes and commercial buildings. Evidence-grade photosets, clear summaries, and rapid turnaround.</p>
         <div style="display:flex; gap:16px; margin-top:24px">
           <a class="btn btn-primary" href="#contact">Request an Inspection</a>
           <a class="btn btn-ghost" href="#services">See What’s Included</a>
         </div>
       </div>
 
-      <div class="hero__media reveal" style="grid-column: 9 / span 4">
-        <!-- Contact strip card with FULL-COLOR photo -->
+      <div class="hero__media reveal" style="grid-column:9 / span 4">
         <div class="hero__card">
-          <!-- 🔧 EDIT ME: ensure this path exists; width/height set for CLS -->
-          <img src="assets/skyguard-headshot.jpg" alt="SkyGUARD representative" width="192" height="192" loading="eager" />
+          <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner — SkyGUARD" width="192" height="192" loading="eager" />
           <div>
-            <!-- 🔧 EDIT ME: direct contact -->
             <div style="font-weight:700">Direct Line</div>
-            <div class="muted" style="margin-bottom:12px">Mon–Sat 8:00–18:00</div>
+            <div class="muted" style="margin-bottom:12px">Mon–Fri 8:00–17:00 (Varies seasonally with daylight)</div>
             <div style="display:flex; gap:12px; flex-wrap:wrap">
-              <a class="btn btn-primary" href="tel:+14025551234">Call</a>
-              <a class="btn btn-ghost" href="mailto:contact@skyguard-services.com?subject=SkyGUARD%20Inquiry">Email</a> <!-- 🔧 EDIT ME -->
+              <a class="btn btn-primary" href="tel:+15312339962">Call</a>
+              <a class="btn btn-ghost" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Credibility cluster -->
       <div class="cred reveal">
-        <!-- 🔧 EDIT ME: replace with real badges/logos or license numbers -->
         <div class="badge">FAA Part 107 Certified</div>
         <div class="badge">Commercial Liability Insured</div>
         <div class="badge">Trusted by Contractors & Adjusters</div>
@@ -263,88 +199,60 @@
     </div>
   </section>
 
-  <!-- =======================================
-       SERVICES (3–6 cards)
-  ======================================== -->
+  <!-- WHAT'S INCLUDED (cleaned—no gray boxes/icons) -->
   <section id="services" class="section light">
     <div class="container">
-      <div class="reveal" style="grid-column: 1 / -1">
+      <div class="reveal" style="grid-column:1 / -1">
         <h2>What’s Included</h2>
-        <p class="muted">High-resolution imaging and concise reporting designed to support decisions—not marketing gloss.</p>
+        <p class="muted">High-resolution imaging and concise reporting designed to support decisions.</p>
       </div>
 
       <div class="cards">
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Full-Roof Imaging</h3>
           <p>Orthomosaic top-down and side-angle captures for every slope; consistent framing and naming.</p>
         </article>
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Critical Detail Close-ups</h3>
-          <p>Metals, penetrations, terminations, seams, flashings, skylights—shot lists that don’t miss.</p>
+          <p>Metals, penetrations, terminations, seams, flashings, and skylights—shot lists that don’t miss.</p>
         </article>
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Condition Summary</h3>
-          <p>Two-line findings plus recommended next actions aligned to your goals (repair, replace, claim).</p>
+          <p>Clear findings plus recommended next actions aligned to your goals (repair, replace, claim).</p>
         </article>
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Insurance-Ready Evidence</h3>
           <p>Labeled highlights plus a link to all unannotated originals for independent review.</p>
         </article>
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Fast Delivery</h3>
-          <p>Turnaround measured in hours, not weeks; secure online delivery with simple sharing.</p>
+          <p>Turnaround measured in hours; secure online delivery with simple sharing.</p>
         </article>
         <article class="card reveal">
-          <span class="icon" aria-hidden="true"></span>
           <h3>Commercial & Residential</h3>
-          <p>Small homes to large footprint roofs; documented safely and consistently.</p>
+          <p>From single-family to large footprints—documented safely and consistently.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- =======================================
-       PROCESS (timeline)
-  ======================================== -->
+  <!-- PROCESS -->
   <section id="process" class="section light" style="background:#FFFFFF">
     <div class="container">
-      <div class="reveal" style="grid-column:1 / -1">
-        <h2>How It Works</h2>
-      </div>
+      <div class="reveal" style="grid-column:1 / -1"><h2>How It Works</h2></div>
       <div class="timeline">
-        <div class="step reveal">
-          <strong>1. Schedule</strong>
-          <p class="muted">Pick a time; confirm access & restrictions.</p>
-        </div>
-        <div class="step reveal">
-          <strong>2. Capture</strong>
-          <p class="muted">On-site flight plan; safe, consistent angles.</p>
-        </div>
-        <div class="step reveal">
-          <strong>3. Review</strong>
-          <p class="muted">Sort, label, and summarize findings.</p>
-        </div>
-        <div class="step reveal">
-          <strong>4. Deliver</strong>
-          <p class="muted">Secure link with originals and report.</p>
-        </div>
+        <div class="step reveal"><strong>1. Schedule</strong><p class="muted">Pick a time; confirm access and restrictions.</p></div>
+        <div class="step reveal"><strong>2. Capture</strong><p class="muted">On-site flight plan; safe, consistent angles.</p></div>
+        <div class="step reveal"><strong>3. Review</strong><p class="muted">Sort, label, and summarize findings.</p></div>
+        <div class="step reveal"><strong>4. Deliver</strong><p class="muted">Secure link with originals and report.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- =======================================
-       CASE STUDIES (simple metric cards; placeholders)
-  ======================================== -->
-  <section id="cases" class="section light">
+  <!-- RECENT WORK (renamed from Case Studies) -->
+  <section id="work" class="section light">
     <div class="container">
-      <div class="reveal" style="grid-column:1 / -1">
-        <h2>Results at a Glance</h2>
-      </div>
+      <div class="reveal" style="grid-column:1 / -1"><h2>Recent Work</h2></div>
       <div class="cards">
         <article class="card reveal">
           <h3>Commercial Roof • 120k sq ft</h3>
@@ -356,38 +264,18 @@
         </article>
         <article class="card reveal">
           <h3>Residential Duplex</h3>
-          <p><strong>Next-step clarity</strong>: repair vs. replace recommendations.</p>
+          <p><strong>Actionable clarity</strong> for repair vs. replace decisions.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- =======================================
-       FAQ
-  ======================================== -->
-  <section class="section light" style="background:#F9FAFB">
-    <div class="container">
-      <div class="reveal" style="grid-column:1 / -1">
-        <h2>FAQs</h2>
-      </div>
-      <div style="grid-column:1 / -1">
-        <details class="reveal"><summary>Are you licensed and insured?</summary><p>Yes. FAA Part 107 certified and commercially insured.</p></details>
-        <details class="reveal"><summary>How fast can you deliver?</summary><p>Often same-day; complex jobs typically within 24–48 hours.</p></details>
-        <details class="reveal"><summary>Do you work with contractors and adjusters?</summary><p>Yes—our sets are structured for professional review.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- =======================================
-       CONTACT (Two-step form)
-  ======================================== -->
+  <!-- CONTACT (two-step) -->
   <section id="contact" class="section light">
     <div class="container">
       <div class="contact-left reveal">
         <h2>Request an Inspection</h2>
-        <!-- Two-step: Step 1 (basic), Step 2 (details) -->
-        <!-- 🔧 EDIT ME: set your email in data-to -->
-        <form id="quoteForm" data-to="contact@skyguard-services.com" novalidate>
+        <form id="quoteForm" data-to="Support@skyguard-services.com" novalidate>
           <div id="step1">
             <div class="row">
               <div>
@@ -402,7 +290,7 @@
             <div class="row">
               <div>
                 <label for="phone">Phone</label>
-                <input id="phone" name="phone" placeholder="(###) ###-####" />
+                <input id="phone" name="phone" placeholder="(531) 233-9962" />
               </div>
               <div>
                 <label for="service">Service</label>
@@ -434,37 +322,25 @@
             </div>
             <p class="form-legal">Submitting opens your email app with a pre-filled message.</p>
           </div>
-
-          <div class="success" id="success" role="status" aria-live="polite">
-            Thanks—expect a reply within 24 hours.
-          </div>
         </form>
       </div>
 
       <aside class="contact-right reveal">
-        <div class="card" style="background:white">
+        <div class="card" style="background:#fff">
           <h3>Office</h3>
-          <!-- 🔧 EDIT ME -->
-          <p><strong>Service Area:</strong> Omaha & Bellevue, NE • Council Bluffs, IA</p>
-          <p><strong>Hours:</strong> Mon–Sat 8:00–18:00; Sun by appointment</p>
+          <p><strong>Hours:</strong> Monday–Friday 8:00–17:00 <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
+          <p><strong>Service Area:</strong> Within a 50-mile radius of central Omaha</p>
           <div style="height:16px"></div>
-          <h3>Map</h3>
-          <!-- 🔧 EDIT ME: replace src with your Google Maps embed -->
-          <iframe
-            title="Bellevue, NE"
-            loading="lazy"
-            width="100%" height="260"
-            style="border:1px solid var(--border-light); border-radius:12px"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30477.9806!2d-95.9901!3d41.1544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938d4c7b5a9b7b%3A0x0000000000000000!2sBellevue%2C%20NE!5e0!3m2!1sen!2sus!4v0000000000">
-          </iframe>
+          <h3>Direct Contacts</h3>
+          <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
+          <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
+          <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> — Kaden Wegner</p>
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- =======================================
-       FOOTER
-  ======================================== -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-grid">
       <div class="foot-col">
@@ -473,18 +349,17 @@
       </div>
       <div class="foot-col">
         <strong>Contact</strong>
-        <!-- 🔧 EDIT ME -->
-        <div>Phone: (402) 555-1234</div>
-        <div>Email: contact@skyguard-services.com</div>
+        <div>Phone: (531) 233-9962</div>
+        <div>Support: Support@skyguard-services.com</div>
+        <div>Personal: Kaden@skyguard-services.com</div>
       </div>
       <div class="foot-col">
         <strong>Legal</strong>
-        <!-- 🔧 EDIT ME: license/coverage link -->
         <div>FAA Part 107 • Commercially Insured</div>
       </div>
       <div class="foot-col">
         <strong>Service Area</strong>
-        <div>Omaha • Bellevue • Council Bluffs</div>
+        <div>50-mile radius of central Omaha</div>
       </div>
       <div class="foot-legal">
         © <span id="year"></span> SkyGUARD. All rights reserved.
@@ -493,58 +368,49 @@
   </footer>
 
   <script>
-    // Header: transparent -> solid on scroll
+    // Header transparency -> solid on scroll
     const hdr = document.getElementById('siteHeader');
-    const setHeader = () => {
-      const solid = window.scrollY > 12;
-      hdr.classList.toggle('is-solid', solid);
-    };
+    const setHeader = ()=> hdr.classList.toggle('is-solid', window.scrollY > 12);
     setHeader(); window.addEventListener('scroll', setHeader, {passive:true});
 
-    // Reveal on scroll with stagger (12–24px translate handled in CSS)
-    const toReveal = Array.from(document.querySelectorAll('.reveal'));
+    // Reveal on scroll (stagger)
+    const els = Array.from(document.querySelectorAll('.reveal'));
     const io = new IntersectionObserver((entries)=>{
-      entries.forEach((e)=>{
+      entries.forEach(e=>{
         if(e.isIntersecting){
-          const i = toReveal.indexOf(e.target);
-          e.target.style.transitionDelay = (i * 40) + 'ms'; // 40ms stagger
+          const i = els.indexOf(e.target);
+          e.target.style.transitionDelay = (i*40)+'ms';
           e.target.classList.add('in');
           io.unobserve(e.target);
         }
       });
-    }, {threshold: 0.1, rootMargin: "0px 0px -10% 0px"});
-    toReveal.forEach(el => io.observe(el));
+    }, {threshold:.1, rootMargin:"0px 0px -10% 0px"});
+    els.forEach(el=>io.observe(el));
 
-    // Two-step form logic + mailto prefill (no backend; Pages-safe)
+    // Two-step form + mailto prefill
     const f = document.getElementById('quoteForm');
     const s1 = document.getElementById('step1');
     const s2 = document.getElementById('step2');
-    document.getElementById('toStep2').addEventListener('click', ()=>{
-      if(!f.reportValidity()) return;
-      s1.style.display = 'none'; s2.style.display = 'block';
-    });
-    document.getElementById('backStep').addEventListener('click', ()=>{
-      s2.style.display = 'none'; s1.style.display = 'block';
-    });
+    document.getElementById('toStep2').addEventListener('click', ()=>{ if(!f.reportValidity()) return; s1.style.display='none'; s2.style.display='block'; });
+    document.getElementById('backStep').addEventListener('click', ()=>{ s2.style.display='none'; s1.style.display='block'; });
     f.addEventListener('submit', (e)=>{
       e.preventDefault();
-      const to = f.dataset.to || 'contact@skyguard-services.com'; // 🔧 EDIT ME
-      const data = new FormData(f);
+      const to = f.dataset.to || 'Support@skyguard-services.com';
+      const d = new FormData(f);
       const fields = {
-        Name: data.get('name')||'',
-        Email: data.get('email')||'',
-        Phone: data.get('phone')||'',
-        Service: data.get('service')||'',
-        Address: data.get('address')||'',
-        Details: data.get('message')||''
+        Name:d.get('name')||'',
+        Email:d.get('email')||'',
+        Phone:d.get('phone')||'',
+        Service:d.get('service')||'',
+        Address:d.get('address')||'',
+        Details:d.get('message')||''
       };
       const subject = encodeURIComponent('Inspection Request — ' + fields.Name);
       const body = encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      document.getElementById('success').classList.add('show');
     });
 
-    // Dynamic year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
