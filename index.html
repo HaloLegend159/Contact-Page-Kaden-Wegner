@@ -7,7 +7,7 @@
   <meta name="description" content="Professional drone roof inspections, condition reports, and documentation for residential and commercial properties in the Omaha area." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Font (one family, 3 weights) -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,15 +29,15 @@
   <style>
     /* -----------------------------------------------------------
        DESIGN SYSTEM — darker monochrome with one blue accent
-       Spacing scale: 8 / 16 / 24 / 32 / 48 / 64
+       Spacing: 8 / 16 / 24 / 32 / 48 / 64
     ----------------------------------------------------------- */
     :root{
-      --accent:#0A5CD8;                  /* brand blue (darker) */
-      --bg-dark:#0B0B0C;                 /* hero band */
-      --bg-mid:#0F1114;                  /* darker section */
-      --bg-light:#E9EDF1;                /* page background */
-      --ink-dark:#0D0F12;                /* dark text on light */
-      --ink-light:#F3F4F6;               /* light text on dark */
+      --accent:#0A5CD8;
+      --bg-dark:#0B0B0C;
+      --bg-mid:#0F1114;
+      --bg-light:#E9EDF1;
+      --ink-dark:#0D0F12;
+      --ink-light:#F3F4F6;
       --muted:#6B7280;
       --border-light:#D3DAE2;
       --border-dark:#1F242A;
@@ -60,7 +60,7 @@
     }
     a{color:inherit; text-decoration:none}
 
-    /* 12-col grid container */
+    /* 12-col container */
     .container{
       max-width:var(--maxw);
       margin:0 auto;
@@ -70,7 +70,7 @@
       gap:24px;
     }
 
-    /* Type scale */
+    /* Type */
     h1{font-size:clamp(48px,6vw,64px);line-height:1.1;font-weight:700;margin:0 0 16px}
     h2{font-size:clamp(32px,4vw,40px);line-height:1.2;font-weight:700;margin:0 0 12px}
     p{margin:0 0 16px}
@@ -120,11 +120,11 @@
     .hero__card{background:#fff; color:var(--ink-dark); border:1px solid var(--border-light); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; display:flex; align-items:center; gap:16px; width:min(520px,100%)}
     .hero__card img{width:96px; height:96px; border-radius:14px; object-fit:cover}
 
-    /* Credibility badges */
+    /* Credibility */
     .cred{grid-column:1 / -1; display:flex; gap:32px; flex-wrap:wrap; align-items:center; opacity:.92}
     .cred .badge{display:flex; align-items:center; gap:12px; color:inherit; padding:8px 12px; border:1px solid currentColor; border-radius:12px; font-size:14px; opacity:.88}
 
-    /* Cards grid */
+    /* Cards */
     .cards{grid-column:1 / -1; display:grid; gap:24px}
     @media (min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow-soft); transition:box-shadow .2s ease, border-color .2s ease, transform .05s ease}
@@ -158,22 +158,20 @@
     @media (min-width:760px){.row{grid-template-columns:1fr 1fr}}
     .form-legal{font-size:14px; color:var(--muted)}
 
-    /* Service area map (Additional Details) */
+    /* Map inside Additional Details card */
     .service-map{
-      grid-column: 1 / -1;
       width: 100%;
-      min-height: 360px;
+      min-height: 300px;
       border: 1px solid var(--border-light);
-      border-radius: 16px;
-      background: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-soft);
+      margin-top: 12px;
     }
     @media (max-width: 760px){
-      .service-map{ min-height: 260px; border-radius: 14px; }
+      .service-map{ min-height: 240px; }
     }
     @media (min-width: 1100px){
-      .service-map{ min-height: 460px; }
+      .service-map{ min-height: 360px; }
     }
 
     /* Footer */
@@ -182,7 +180,7 @@
     .foot-col{grid-column:span 3}
     .foot-legal{grid-column:1 / -1; color:#5b626d}
 
-    /* Motion: reveal on scroll */
+    /* Motion */
     .reveal{opacity:0; transform:translateY(20px); transition:opacity .28s ease, transform .28s ease}
     .reveal.in{opacity:1; transform:none}
     @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none}.nav a::after{display:none}}
@@ -321,10 +319,10 @@
       </div>
     </div>
 
-    <!-- Lightbox modal -->
-    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
-      <img id="lightboxImg" alt="">
-    </div>
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+    <img id="lightboxImg" alt="">
+  </div>
   </section>
 
   <!-- FAQ -->
@@ -395,38 +393,32 @@
         </form>
       </div>
 
+      <!-- ADDITIONAL DETAILS card with map INSIDE -->
       <aside class="contact-right reveal">
         <div class="card" style="background:#fff">
-          <h3>Office</h3>
-          <p><strong>Hours:</strong> Monday–Friday 8:00–17:00 <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
+          <h3>Additional Details</h3>
+
+          <p><strong>Hours:</strong> Monday–Friday 8:00–17:00
+            <span class="muted">(varies by time of year due to decreased sunlight)</span>
+          </p>
           <p><strong>Service Area:</strong> Within a 50-mile radius of central Omaha</p>
+
           <div style="height:16px"></div>
           <h3>Direct Contacts</h3>
           <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
           <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
           <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> — Kaden Wegner</p>
+
+          <!-- Service area map (NO comments inside the tag) -->
+          <div id="officeMap"
+               class="service-map"
+               data-lat="41.2565"
+               data-lng="-95.9345"
+               data-radius="80467"
+               aria-label="Map showing a 50-mile service radius centered on Omaha">
+          </div>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <!-- ADDITIONAL DETAILS (Map at the bottom) -->
-  <section id="additional" class="section light">
-    <div class="container">
-      <div class="reveal" style="grid-column:1 / -1">
-        <h2>Additional Details</h2>
-        <p class="muted">Service Area Map — within a 50-mile radius of central Omaha.</p>
-      </div>
-
-      <!-- Map -->
-      <div
-        id="serviceMap"
-        class="service-map reveal"
-        aria-label="Map showing a 50-mile service radius centered on Omaha"
-        data-lat="41.2565"   <!-- downtown Omaha latitude -->
-        data-lng="-95.9345"  <!-- downtown Omaha longitude -->
-        data-radius-m="80467"<!-- 50 miles in meters -->
-      ></div>
     </div>
   </section>
 
@@ -512,13 +504,14 @@
     });
     lb.addEventListener('click', ()=> lb.classList.remove('open'));
 
-    // Service area map (Leaflet)
-    window.addEventListener('load', ()=>{
-      const el = document.getElementById('serviceMap');
+    // Office card service area map (inside Additional Details)
+    function initRadiusMap(elId){
+      const el = document.getElementById(elId);
       if(!el || !window.L) return;
+
       const lat = parseFloat(el.dataset.lat);
       const lng = parseFloat(el.dataset.lng);
-      const radius = parseFloat(el.dataset.radiusM); // meters
+      const radius = parseFloat(el.dataset.radius || el.dataset.radiusM || 80467); // meters
 
       const map = L.map(el, {scrollWheelZoom:true}).setView([lat, lng], 10);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -526,7 +519,6 @@
         attribution: '© OpenStreetMap'
       }).addTo(map);
 
-      // Circle (50-mile radius)
       const circle = L.circle([lat, lng], {
         radius: radius,
         color: '#0A5CD8',
@@ -536,18 +528,18 @@
         fillOpacity: 0.08
       }).addTo(map);
 
-      // Marker at center
       L.marker([lat, lng]).addTo(map).bindPopup('Central Omaha');
 
-      // Fit bounds to circle for both mobile and desktop
-      map.fitBounds(circle.getBounds(), {padding:[20,20]});
+      // Fit to circle and keep responsive
+      map.fitBounds(circle.getBounds(), {padding:[18,18]});
+      setTimeout(()=>map.invalidateSize(), 0);
+      window.addEventListener('resize', ()=>map.fitBounds(circle.getBounds(), {padding:[18,18]}));
+    }
 
-      // Refit on container size changes
-      window.addEventListener('resize', ()=> map.fitBounds(circle.getBounds(), {padding:[20,20]}));
+    window.addEventListener('load', ()=>{
+      initRadiusMap('officeMap');
+      document.getElementById('year').textContent = new Date().getFullYear();
     });
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
