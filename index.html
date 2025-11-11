@@ -26,11 +26,6 @@
     crossorigin=""
   ></script>
 
-  <!-- Calendly popup -->
-  <link rel="preconnect" href="https://assets.calendly.com">
-  <link rel="preconnect" href="https://calendly.com">
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
   <style>
     :root{
       --accent:#0A5CD8;
@@ -212,6 +207,15 @@
     .booking-card p{margin:0 0 12px; color:var(--muted)}
     .booking-actions{display:flex; gap:10px; flex-wrap:wrap}
 
+    /* Modal (Square booking iframe) */
+    .modal{position:fixed; inset:0; background:rgba(0,0,0,.7); display:none; align-items:center; justify-content:center; z-index:1000}
+    .modal.open{display:flex}
+    .modal-card{width:min(1000px,92vw); height:min(90vh,800px); background:#fff; border-radius:16px; overflow:hidden; display:flex; flex-direction:column}
+    .modal-bar{display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #E1E6EC}
+    .modal-title{font-weight:700}
+    .modal-close{border:1px solid #D3DAE2; background:#fff; border-radius:10px; padding:8px 12px; cursor:pointer}
+    .modal-iframe{flex:1; border:0; width:100%}
+
     /* Map inside Additional Details */
     .service-map{width:100%; min-height:240px; border:1px solid var(--border-light); border-radius:12px; overflow:hidden; margin-top:10px}
     @media (min-width:900px){ .service-map{min-height:340px} }
@@ -357,51 +361,58 @@
       <div class="contact-left reveal">
         <h2>Contact Us</h2>
 
-        <!-- Booking + Payment (Calendly) -->
+        <!-- START: SkyGUARD Booking (Square Appointments – Free) -->
         <div class="booking-grid" style="margin-bottom:12px">
+          <!-- Residential -->
           <div class="booking-card">
             <h3>Residential Roof Inspection</h3>
             <p>Single-family homes. Includes full-roof imaging and concise summary report.</p>
             <div class="booking-actions">
-              <button
-                class="btn btn-primary"
-                onclick="Calendly.initPopupWidget({
-                  url: 'https://calendly.com/YOUR-ORG/residential?hide_event_type_details=1&hide_gdpr_banner=1'
-                }); return false;">
+              <button class="btn btn-primary open-square"
+                      data-title="Residential Roof Inspection"
+                      data-url="https://square.site/BOOKING-LINK-FOR-RESIDENTIAL">
                 Schedule & Pay
               </button>
-              <a
-                class="btn btn-ghost"
-                href="https://calendly.com/YOUR-ORG/residential"
-                target="_blank" rel="noopener">
+              <a class="btn btn-ghost"
+                 href="https://square.site/BOOKING-LINK-FOR-RESIDENTIAL"
+                 target="_blank" rel="noopener">
                 Open in New Tab
               </a>
             </div>
           </div>
 
+          <!-- Commercial -->
           <div class="booking-card">
             <h3>Commercial Roof Inspection</h3>
             <p>Retail, office, multi-unit & industrial. Imaging, highlights, and report.</p>
             <div class="booking-actions">
-              <button
-                class="btn btn-primary"
-                onclick="Calendly.initPopupWidget({
-                  url: 'https://calendly.com/YOUR-ORG/commercial?hide_event_type_details=1&hide_gdpr_banner=1'
-                }); return false;">
+              <button class="btn btn-primary open-square"
+                      data-title="Commercial Roof Inspection"
+                      data-url="https://square.site/BOOKING-LINK-FOR-COMMERCIAL">
                 Schedule & Pay
               </button>
-              <a
-                class="btn btn-ghost"
-                href="https://calendly.com/YOUR-ORG/commercial"
-                target="_blank" rel="noopener">
+              <a class="btn btn-ghost"
+                 href="https://square.site/BOOKING-LINK-FOR-COMMERCIAL"
+                 target="_blank" rel="noopener">
                 Open in New Tab
               </a>
             </div>
           </div>
         </div>
-        <!-- /Booking -->
 
-        <!-- Optional contact form (kept for convenience) -->
+        <!-- Modal for Square booking -->
+        <div id="sqModal" class="modal" aria-modal="true" role="dialog">
+          <div class="modal-card">
+            <div class="modal-bar">
+              <div id="sqTitle" class="modal-title">Book Now</div>
+              <button id="sqClose" class="modal-close" aria-label="Close">Close</button>
+            </div>
+            <iframe id="sqFrame" class="modal-iframe" title="Book with SkyGUARD"></iframe>
+          </div>
+        </div>
+        <!-- END: SkyGUARD Booking (Square Appointments – Free) -->
+
+        <!-- Optional contact form -->
         <form id="quoteForm" data-to="Support@skyguard-services.com" novalidate>
           <div id="step1">
             <div class="row">
@@ -528,6 +539,36 @@
       setTimeout(()=>map.invalidateSize(), 0);
       window.addEventListener('resize', ()=>map.fitBounds(circle.getBounds(), {padding:[18,18]}));
     }
+
+    // Square booking modal
+    (function(){
+      const modal = document.getElementById('sqModal');
+      const frame = document.getElementById('sqFrame');
+      const title = document.getElementById('sqTitle');
+      const closeBtn = document.getElementById('sqClose');
+
+      function open(url, t){
+        title.textContent = t || 'Book Now';
+        frame.src = url;
+        modal.classList.add('open');
+      }
+      function close(){
+        modal.classList.remove('open');
+        frame.src = 'about:blank';
+      }
+
+      document.querySelectorAll('.open-square').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const url = btn.dataset.url;
+          const t = btn.dataset.title;
+          open(url, t);
+        });
+      });
+
+      closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) close(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+    })();
 
     window.addEventListener('load', ()=>{
       initRadiusMap('officeMap');
