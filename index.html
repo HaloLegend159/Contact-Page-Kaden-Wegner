@@ -26,6 +26,11 @@
     crossorigin=""
   ></script>
 
+  <!-- Calendly popup -->
+  <link rel="preconnect" href="https://assets.calendly.com">
+  <link rel="preconnect" href="https://calendly.com">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
   <style>
     :root{
       --accent:#0A5CD8;
@@ -199,6 +204,14 @@
     .row{display:grid; gap:14px}
     @media (min-width:760px){.row{grid-template-columns:1fr 1fr}}
 
+    /* Booking cards */
+    .booking-grid{display:grid; gap:12px}
+    @media (min-width:900px){ .booking-grid{grid-template-columns:1fr 1fr} }
+    .booking-card{background:#fff; border:1px solid var(--border-light); border-radius:16px; padding:18px; box-shadow:var(--shadow-soft)}
+    .booking-card h3{margin:0 0 6px}
+    .booking-card p{margin:0 0 12px; color:var(--muted)}
+    .booking-actions{display:flex; gap:10px; flex-wrap:wrap}
+
     /* Map inside Additional Details */
     .service-map{width:100%; min-height:240px; border:1px solid var(--border-light); border-radius:12px; overflow:hidden; margin-top:10px}
     @media (min-width:900px){ .service-map{min-height:340px} }
@@ -255,7 +268,7 @@
         <h1>Roof inspections, done right—fast, documented, insured.</h1>
         <p class="muted" style="color:var(--ink-light)">Professional drone surveys and condition reports for homes and commercial buildings. Evidence-grade photosets, clear summaries, and rapid turnaround.</p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px">
-          <a class="btn btn-primary" href="#contact">Request an Inspection</a>
+          <a class="btn btn-primary" href="#contact">Contact Us</a>
           <a class="btn btn-ghost" href="#services">See What’s Included</a>
         </div>
       </div>
@@ -338,11 +351,57 @@
     </div>
   </section>
 
-  <!-- CONTACT + ADDITIONAL DETAILS (map inside) -->
+  <!-- CONTACT + ADDITIONAL DETAILS (booking + map inside) -->
   <section id="contact" class="section light">
     <div class="container">
       <div class="contact-left reveal">
-        <h2>Request an Inspection</h2>
+        <h2>Contact Us</h2>
+
+        <!-- Booking + Payment (Calendly) -->
+        <div class="booking-grid" style="margin-bottom:12px">
+          <div class="booking-card">
+            <h3>Residential Roof Inspection</h3>
+            <p>Single-family homes. Includes full-roof imaging and concise summary report.</p>
+            <div class="booking-actions">
+              <button
+                class="btn btn-primary"
+                onclick="Calendly.initPopupWidget({
+                  url: 'https://calendly.com/YOUR-ORG/residential?hide_event_type_details=1&hide_gdpr_banner=1'
+                }); return false;">
+                Schedule & Pay
+              </button>
+              <a
+                class="btn btn-ghost"
+                href="https://calendly.com/YOUR-ORG/residential"
+                target="_blank" rel="noopener">
+                Open in New Tab
+              </a>
+            </div>
+          </div>
+
+          <div class="booking-card">
+            <h3>Commercial Roof Inspection</h3>
+            <p>Retail, office, multi-unit & industrial. Imaging, highlights, and report.</p>
+            <div class="booking-actions">
+              <button
+                class="btn btn-primary"
+                onclick="Calendly.initPopupWidget({
+                  url: 'https://calendly.com/YOUR-ORG/commercial?hide_event_type_details=1&hide_gdpr_banner=1'
+                }); return false;">
+                Schedule & Pay
+              </button>
+              <a
+                class="btn btn-ghost"
+                href="https://calendly.com/YOUR-ORG/commercial"
+                target="_blank" rel="noopener">
+                Open in New Tab
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- /Booking -->
+
+        <!-- Optional contact form (kept for convenience) -->
         <form id="quoteForm" data-to="Support@skyguard-services.com" novalidate>
           <div id="step1">
             <div class="row">
@@ -369,7 +428,7 @@
             <div><label for="address">Property Address</label><input id="address" name="address" placeholder="Street, City, State" /></div>
             <div><label for="message">Details</label><textarea id="message" name="message" placeholder="Roof age, leaks, wind/hail date, timing…"></textarea></div>
             <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <button type="submit" class="btn btn-primary">Send Request</button>
+              <button type="submit" class="btn btn-primary">Send</button>
               <button type="button" class="btn btn-ghost" id="backStep">Back</button>
             </div>
             <p class="form-legal">Submitting opens your email app with a pre-filled message.</p>
@@ -441,7 +500,7 @@
       const to = f.dataset.to || 'Support@skyguard-services.com';
       const d = new FormData(f);
       const fields = { Name:d.get('name')||'', Email:d.get('email')||'', Phone:d.get('phone')||'', Service:d.get('service')||'', Address:d.get('address')||'', Details:d.get('message')||'' };
-      const subject = encodeURIComponent('Inspection Request — ' + fields.Name);
+      const subject = encodeURIComponent('Contact — ' + fields.Name);
       const body = encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
