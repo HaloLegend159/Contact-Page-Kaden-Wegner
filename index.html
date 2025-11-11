@@ -30,14 +30,11 @@
     :root{
       --accent:#0A5CD8;
       --bg-dark:#0B0B0C;
-      --bg-mid:#0F1114;
       --bg-light:#E9EDF1;
       --ink-dark:#0D0F12;
       --ink-light:#F3F4F6;
       --muted:#6B7280;
       --border-light:#D3DAE2;
-      --border-dark:#1F242A;
-
       --maxw:1200px;
       --radius:16px;
       --shadow:0 6px 20px rgba(13,15,18,.08);
@@ -63,7 +60,7 @@
       margin:0 auto;
       padding:16px;
       display:grid;
-      grid-template-columns:1fr;   /* phones */
+      grid-template-columns:1fr;
       gap:16px;
     }
     @media (min-width:900px){
@@ -84,28 +81,28 @@
     header{
       position:sticky; top:0; z-index:100;
       backdrop-filter:blur(10px);
-      transition:background .25s ease, box-shadow .25s ease, border-color .25s ease;
-      background:rgba(233,237,241,.88); border-bottom:1px solid var(--border-light);
+      background:rgba(233,237,241,.88);
+      border-bottom:1px solid var(--border-light);
     }
     .nav{
       max-width:var(--maxw); margin:0 auto; padding:12px 16px;
-      display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:12px;
+      display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:8px;
     }
     .brand{display:flex; align-items:center; gap:10px}
     .brand img{width:40px; height:40px; object-fit:contain}
     .brand .name{font-weight:700; letter-spacing:.2px}
 
-    /* Mobile menu */
+    /* Mobile menu button */
     .menu-toggle{
       display:inline-flex; align-items:center; justify-content:center;
       width:40px; height:40px; border-radius:10px; border:1px solid var(--border-light);
       background:#fff; cursor:pointer;
     }
-    /* hide on desktop */
     @media (min-width:900px){ .menu-toggle{display:none} }
 
+    /* Primary links container */
     .nav-links{
-      display:none;                 /* phones: collapsed */
+      display:none;
       position:fixed; left:0; right:0; top:64px;
       background:#fff; border-top:1px solid var(--border-light);
       box-shadow:var(--shadow-soft);
@@ -114,7 +111,6 @@
     .nav-links a{display:block; padding:12px 8px; border-radius:8px}
     .nav-links a:hover{background:#f4f7fb}
     .nav-links.open{display:block}
-    /* desktop nav links */
     @media (min-width:900px){
       .nav{grid-template-columns:1fr auto 1fr}
       .nav-links{
@@ -136,50 +132,59 @@
     .btn-ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
     .btn-ghost:hover{transform:translateY(-1px); background:rgba(10,92,216,.06)}
 
+    /* Header labels swap & ultra-small tweaks */
+    .label-short{display:none}
+    @media (max-width:480px){
+      .label-long{display:none}
+      .label-short{display:inline}
+      .nav-cta .btn{padding:8px 12px; font-size:14px; border-radius:10px}
+    }
+    @media (max-width:360px){
+      .brand .name{display:none}
+      .brand img{width:34px; height:34px}
+      .menu-toggle{width:36px; height:36px}
+      .nav-cta .btn{padding:8px 10px; font-size:13px}
+    }
+
     /* Sections */
     .section{padding:48px 0}
     @media (min-width:900px){ .section{padding:64px 0} }
-    .dark{background:var(--bg-dark); color:var(--ink-light); border-bottom:1px solid var(--border-dark)}
+    .dark{background:var(--bg-dark); color:var(--ink-light)}
     .light{background:var(--bg-light); color:var(--ink-dark); border-top:1px solid var(--border-light)}
 
-    /* Hero */
-    .hero__text,.hero__media,.contact-left,.contact-right{grid-column:1 / -1}    /* phones: stack */
+    /* Layout stacks */
+    .hero__text,.hero__media,.contact-left,.contact-right{grid-column:1 / -1}
     @media (min-width:900px){
       .hero__text{grid-column:1 / span 7}
       .hero__media{grid-column:9 / span 4; justify-self:end}
       .contact-left{grid-column:1 / span 6}
       .contact-right{grid-column:7 / span 6}
     }
+
     .hero__card{background:#fff; color:var(--ink-dark); border:1px solid var(--border-light); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; display:flex; align-items:center; gap:14px}
     .hero__card img{width:80px; height:80px; border-radius:12px; object-fit:cover}
     @media (min-width:900px){ .hero__card{padding:24px}.hero__card img{width:96px;height:96px} }
 
-    /* Credibility */
     .cred{grid-column:1 / -1; display:flex; gap:12px; flex-wrap:wrap; align-items:center; opacity:.92}
     .cred .badge{display:flex; align-items:center; gap:8px; color:inherit; padding:6px 10px; border:1px solid currentColor; border-radius:10px; font-size:13px; opacity:.88}
     @media (min-width:900px){ .cred{gap:32px}.cred .badge{padding:8px 12px; border-radius:12px; font-size:14px} }
 
-    /* Cards */
     .cards{grid-column:1 / -1; display:grid; gap:16px}
     @media (min-width:900px){.cards{gap:24px; grid-template-columns:repeat(3,1fr)}}
-    .card{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft); transition:box-shadow .2s ease, border-color .2s ease, transform .05s ease}
-    .card:hover{border-color:#cdd4de; box-shadow:var(--shadow); transform:translateY(-1px)}
+    .card{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft)}
     @media (min-width:900px){ .card{padding:24px} }
 
-    /* Timeline */
     .timeline{grid-column:1 / -1; display:grid; gap:16px}
     @media (min-width:900px){.timeline{gap:24px; grid-template-columns:repeat(4,1fr)}}
     .step{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft)}
     @media (min-width:900px){ .step{padding:24px} }
 
-    /* Examples */
     .examples{grid-column:1 / -1; display:grid; gap:16px}
     @media (min-width:900px){.examples{gap:24px; grid-template-columns:repeat(2,1fr)}}
     .example{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow-soft)}
     @media (min-width:900px){ .example{padding:16px} }
     .example img{border-radius:12px; cursor:pointer}
 
-    /* Lightbox */
     .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:999}
     .lightbox.open{display:flex}
     .lightbox img{max-width:90vw; max-height:90vh; border-radius:12px}
@@ -223,16 +228,17 @@
         <div class="name">SkyGUARD</div>
       </div>
 
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">
-        ☰
-      </button>
+      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">☰</button>
 
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="tel:+15312339962">Call (531) 233-9962</a>
+        <a class="btn btn-ghost" href="tel:+15312339962">
+          <span class="label-long">Call (531) 233-9962</span>
+          <span class="label-short">Call</span>
+        </a>
       </div>
     </nav>
 
-    <!-- Mobile/desktop nav links -->
+    <!-- Links panel -->
     <div id="primaryNav" class="nav-links">
       <a href="#services">Services</a>
       <a href="#process">Process</a>
@@ -448,7 +454,7 @@
     });
     lb.addEventListener('click', ()=> lb.classList.remove('open'));
 
-    // Map
+    // Map (Additional Details)
     function initRadiusMap(elId){
       const el = document.getElementById(elId);
       if(!el || !window.L) return;
