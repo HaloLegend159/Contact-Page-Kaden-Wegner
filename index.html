@@ -4,14 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SkyGUARD — Professional Drone Roof Inspections</title>
-  
-  <!-- Use existing SkyGUARD logo as favicon -->
-<link rel="icon" type="image/png" href="assets/SkyGUARD2.png">
-<link rel="apple-touch-icon" href="assets/SkyGUARD2.png">
-<meta name="theme-color" content="#0A5CD8">
-
-  <meta name="description" content="Professional drone roof inspections, condition reports, and documentation for residential and commercial properties in the Omaha area." />
+  <meta name="description" content="Professional drone roof inspections, condition reports, and documentation for residential and commercial properties around Gretna, Nebraska." />
   <meta name="robots" content="index,follow" />
+
+  <!-- Favicon using existing logo -->
+  <link rel="icon" type="image/png" href="assets/SkyGUARD2.png">
+  <link rel="apple-touch-icon" href="assets/SkyGUARD2.png">
+  <meta name="theme-color" content="#0A5CD8">
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +21,11 @@
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""
   />
   <script
     defer
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""
   ></script>
 
@@ -55,12 +52,24 @@
       background:var(--bg-light);
       color:var(--ink-dark);
       line-height:1.6;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing:antialiased;
+      scroll-behavior:smooth;
     }
     img{max-width:100%; height:auto; display:block}
     a{color:inherit; text-decoration:none}
 
-    /* Container — mobile-first (1 col), desktop (12 col) */
+    /* Fade & slide reveal */
+    .fade-up {
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .22s ease-out, transform .22s ease-out;
+    }
+    .fade-up.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Container */
     .container{
       max-width:var(--maxw);
       margin:0 auto;
@@ -85,431 +94,148 @@
     .measure{max-width:70ch}
 
     /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:100;
-      backdrop-filter:blur(10px);
-      background:rgba(233,237,241,.88);
-      border-bottom:1px solid var(--border-light);
-    }
-    .nav{
-      max-width:var(--maxw); margin:0 auto; padding:12px 16px;
-      display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:8px;
-    }
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand img{width:40px; height:40px; object-fit:contain}
-    .brand .name{font-weight:700; letter-spacing:.2px}
-
-    .menu-toggle{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:40px; height:40px; border-radius:10px; border:1px solid var(--border-light);
-      background:#fff; cursor:pointer;
-    }
-    @media (min-width:900px){ .menu-toggle{display:none} }
-
-    .nav-links{
-      display:none;
-      position:fixed; left:0; right:0; top:64px;
-      background:#fff; border-top:1px solid var(--border-light);
-      box-shadow:var(--shadow-soft);
-      padding:8px 16px;
-    }
-    .nav-links a{display:block; padding:12px 8px; border-radius:8px}
+    header{position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);background:rgba(233,237,241,.88);border-bottom:1px solid var(--border-light)}
+    .nav{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{width:40px;height:40px;object-fit:contain}
+    .brand .name{font-weight:700;letter-spacing:.2px}
+    .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border-light);background:#fff;cursor:pointer}
+    @media (min-width:900px){.menu-toggle{display:none}}
+    .nav-links{display:none;position:fixed;left:0;right:0;top:64px;background:#fff;border-top:1px solid var(--border-light);box-shadow:var(--shadow-soft);padding:8px 16px}
+    .nav-links a{display:block;padding:12px 8px;border-radius:8px}
     .nav-links a:hover{background:#f4f7fb}
     .nav-links.open{display:block}
     @media (min-width:900px){
       .nav{grid-template-columns:1fr auto 1fr}
-      .nav-links{
-        position:static; display:flex; background:transparent; box-shadow:none; padding:0; gap:24px; justify-content:center;
-      }
-      .nav-links a{display:inline-block; padding:0; border-radius:0; position:relative}
+      .nav-links{position:static;display:flex;background:transparent;box-shadow:none;padding:0;gap:24px;justify-content:center}
+      .nav-links a{display:inline-block;padding:0;border-radius:0;position:relative}
       .nav-links a:hover{background:transparent}
-      .nav-links a::after{
-        content:""; position:absolute; left:50%; transform:translateX(-50%);
-        bottom:-6px; height:2px; width:0; background:var(--accent); transition:width .18s ease;
-      }
+      .nav-links a::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;height:2px;width:0;background:var(--accent);transition:width .18s ease}
       .nav-links a:hover::after{width:100%}
     }
-
     .nav-cta{justify-self:end}
-    .btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:12px; font-weight:600; letter-spacing:.2px; border:1px solid var(--border-light); transition:transform .05s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease; white-space:nowrap}
-    .btn-primary{background:var(--accent); color:#fff; border-color:transparent; box-shadow:var(--shadow)}
-    .btn-primary:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(10,92,216,.25)}
-    .btn-ghost{background:transparent; color:var(--accent); border-color:var(--accent)}
-    .btn-ghost:hover{transform:translateY(-1px); background:rgba(10,92,216,.06)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:600;letter-spacing:.2px;border:1px solid var(--border-light);transition:all .2s ease;white-space:nowrap}
+    .btn-primary{background:var(--accent);color:#fff;border-color:transparent;box-shadow:var(--shadow)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,92,216,.25)}
+    .btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}
+    .btn-ghost:hover{transform:translateY(-1px);background:rgba(10,92,216,.06)}
     .label-short{display:none}
     @media (max-width:480px){
       .label-long{display:none}
       .label-short{display:inline}
-      .nav-cta .btn{padding:8px 12px; font-size:14px; border-radius:10px}
-    }
-    @media (max-width:360px){
-      .brand .name{display:none}
-      .brand img{width:34px; height:34px}
-      .menu-toggle{width:36px; height:36px}
-      .nav-cta .btn{padding:8px 10px; font-size:13px}
+      .nav-cta .btn{padding:8px 12px;font-size:14px;border-radius:10px}
     }
 
     /* Sections */
     .section{padding:48px 0}
-    @media (min-width:900px){ .section{padding:64px 0} }
-    .dark{background:var(--bg-dark); color:var(--ink-light)}
-    .light{background:var(--bg-light); color:var(--ink-dark); border-top:1px solid var(--border-light)}
+    @media (min-width:900px){.section{padding:64px 0}}
+    .dark{background:var(--bg-dark);color:var(--ink-light)}
+    .light{background:var(--bg-light);color:var(--ink-dark);border-top:1px solid var(--border-light)}
 
-    /* Layout stacks */
-    .hero__text,.hero__media,.contact-left,.contact-right{grid-column:1 / -1}
+    .hero__text,.hero__media{grid-column:1 / -1}
     @media (min-width:900px){
       .hero__text{grid-column:1 / span 7}
-      .hero__media{grid-column:9 / span 4; justify-self:end}
-      .contact-left{grid-column:1 / span 6}
-      .contact-right{grid-column:7 / span 6}
+      .hero__media{grid-column:9 / span 4;justify-self:end}
     }
-
-    .hero__card{background:#fff; color:var(--ink-dark); border:1px solid var(--border-light); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; display:flex; align-items:center; gap:14px}
-    .hero__card img{width:80px; height:80px; border-radius:12px; object-fit:cover}
-    @media (min-width:900px){ .hero__card{padding:24px}.hero__card img{width:96px;height:96px} }
-
-    .cred{grid-column:1 / -1; display:flex; gap:12px; flex-wrap:wrap; align-items:center; opacity:.92}
-    .cred .badge{display:flex; align-items:center; gap:8px; color:inherit; padding:6px 10px; border:1px solid currentColor; border-radius:10px; font-size:13px; opacity:.88}
-    @media (min-width:900px){ .cred{gap:32px}.cred .badge{padding:8px 12px; border-radius:12px; font-size:14px} }
-
-    .cards{grid-column:1 / -1; display:grid; gap:16px}
-    @media (min-width:900px){.cards{gap:24px; grid-template-columns:repeat(3,1fr)}}
-    .card{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft)}
-    @media (min-width:900px){ .card{padding:24px} }
-
-    .timeline{grid-column:1 / -1; display:grid; gap:16px}
-    @media (min-width:900px){.timeline{gap:24px; grid-template-columns:repeat(4,1fr)}}
-    .step{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow-soft)}
-    @media (min-width:900px){ .step{padding:24px} }
-
-    .examples{grid-column:1 / -1; display:grid; gap:16px}
-    @media (min-width:900px){.examples{gap:24px; grid-template-columns:repeat(2,1fr)}}
-    .example{background:#fff; border:1px solid var(--border-light); border-radius:var(--radius); padding:12px; box-shadow:var(--shadow-soft)}
-    @media (min-width:900px){ .example{padding:16px} }
-    .example img{border-radius:12px; cursor:pointer}
-
-    .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.8); display:none; align-items:center; justify-content:center; z-index:999}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:90vw; max-height:90vh; border-radius:12px}
-
-    /* Forms */
-    form{display:grid; gap:14px}
-    @media (min-width:900px){ form{gap:16px} }
-    label{font-size:14px; font-weight:600}
-    input,select,textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border-light); background:#fff; color:var(--ink-dark); outline:none}
-    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(10,92,216,.15); border-color:#cfe0ff}
-    textarea{min-height:140px; resize:vertical}
-    .row{display:grid; gap:14px}
-    @media (min-width:760px){.row{grid-template-columns:1fr 1fr}}
-
-    /* Booking card */
-    .booking-card{background:#fff; border:1px solid var(--border-light); border-radius:16px; padding:18px; box-shadow:var(--shadow-soft)}
-    .booking-card h3{margin:0 0 6px}
-    .booking-card p{margin:0 0 12px; color:var(--muted)}
 
     /* Map */
-    .service-map{width:100%; min-height:240px; border:1px solid var(--border-light); border-radius:12px; overflow:hidden; margin-top:10px}
-    @media (min-width:900px){ .service-map{min-height:340px} }
+    .service-map{width:100%;min-height:240px;border:1px solid var(--border-light);border-radius:12px;overflow:hidden;margin-top:10px}
+    @media (min-width:900px){.service-map{min-height:340px}}
 
-    /* Footer */
-    footer{border-top:1px solid var(--border-light); padding:28px 16px; background:#E1E6EC}
-    @media (min-width:900px){ footer{padding:32px 24px} }
-    .footer-grid{max-width:var(--maxw); margin:0 auto; display:grid; gap:16px; grid-template-columns:1fr}
-    @media (min-width:900px){ .footer-grid{gap:24px; grid-template-columns:repeat(12,1fr)} }
-    .foot-col{grid-column:span 1}
-    @media (min-width:900px){ .foot-col{grid-column:span 3} }
-    .foot-legal{grid-column:1 / -1; color:#5b626d; margin-top:8px}
-
-    /* FAQ — desktop rail + wide content */
-    .faq-title{grid-column:1 / -1}
-    .faq-list{grid-column:1 / -1}
-    @media (min-width:900px){
-      .faq-title{grid-column:1 / span 3; align-self:start}
-      .faq-list{grid-column:4 / span 9; max-width:820px}
-    }
-    .faq-list details{background:#fff; border:1px solid var(--border-light); border-radius:12px; padding:10px 14px; margin-bottom:12px; box-shadow:var(--shadow-soft)}
-    .faq-list summary{cursor:pointer; font-weight:600; outline:none}
-    .faq-list p{margin:10px 0 0}
-
-    /* Motion */
-    .reveal{opacity:0; transform:translateY(18px); transition:opacity .28s ease, transform .28s ease}
-    .reveal.in{opacity:1; transform:none}
-    @media (prefers-reduced-motion:reduce){.reveal{opacity:1; transform:none}}
+    footer{border-top:1px solid var(--border-light);padding:28px 16px;background:#E1E6EC}
+    .footer-grid{max-width:var(--maxw);margin:0 auto;display:grid;gap:16px;grid-template-columns:1fr}
+    @media (min-width:900px){.footer-grid{grid-template-columns:repeat(12,1fr)}}
+    .foot-legal{grid-column:1 / -1;color:#5b626d;margin-top:8px}
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header id="siteHeader">
-    <nav class="nav" role="navigation" aria-label="Primary">
-      <div class="brand">
-        <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo" width="96" height="96" />
-        <div class="name">SkyGUARD</div>
-      </div>
-
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">☰</button>
-
-      <div class="nav-cta">
-        <a class="btn btn-ghost" href="tel:+15312339962">
-          <span class="label-long">Call (531) 233-9962</span>
-          <span class="label-short">Call</span>
-        </a>
-      </div>
-    </nav>
-
-    <div id="primaryNav" class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#examples">Report Examples</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Contact</a>
+<header id="siteHeader" class="fade-up">
+  <nav class="nav" role="navigation">
+    <div class="brand">
+      <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo">
+      <div class="name">SkyGUARD</div>
     </div>
-  </header>
+    <button class="menu-toggle" id="menuBtn" aria-label="Toggle menu">☰</button>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="tel:+15312339962">
+        <span class="label-long">Call (531) 233-9962</span>
+        <span class="label-short">Call</span>
+      </a>
+    </div>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="section dark">
-    <div class="container">
-      <div class="hero__text reveal">
-        <h1>Roof inspections, done right—fast, documented, insured.</h1>
-        <p class="muted measure" style="color:var(--ink-light)">Professional drone surveys and condition reports for homes and commercial buildings. Evidence-grade photosets, clear summaries, and rapid turnaround.</p>
-        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px">
-          <a class="btn btn-primary" href="#contact">Contact Us</a>
-          <a class="btn btn-ghost" href="#services">See What’s Included</a>
-        </div>
-      </div>
-
-      <div class="hero__media reveal">
-        <div class="hero__card">
-          <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner — SkyGUARD" loading="eager" />
-          <div>
-            <div style="font-weight:700">Direct Line</div>
-            <div class="muted" style="margin-bottom:10px">Mon–Fri 8:00–17:00 (varies seasonally with daylight)</div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <a class="btn btn-primary" href="tel:+15312339962">Call</a>
-              <a class="btn btn-ghost" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cred reveal">
-        <div class="badge">FAA Part 107 Certified</div>
-        <div class="badge">Commercial Liability Insured</div>
-        <div class="badge">Trusted by Contractors & Adjusters</div>
+<section id="contact" class="section light fade-up">
+  <div class="container">
+    <div class="contact-left">
+      <h2>Contact Us</h2>
+      <div class="booking-card">
+        <h3>Schedule & Pay</h3>
+        <script src='https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z.js'></script>
+        <a style="background-color:#006aff;color:white;padding:10px 24px;border-radius:3px;font-weight:500;text-transform:uppercase;font-family:'Square Market','helvetica neue',helvetica,arial,sans-serif;"
+           href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z">Book an appointment</a>
       </div>
     </div>
-  </section>
 
-  <!-- WHAT'S INCLUDED -->
-  <section id="services" class="section light">
-    <div class="container">
-      <div class="reveal"><h2>What’s Included</h2><p class="muted measure">High-resolution imaging and concise reporting designed to support decisions.</p></div>
+    <aside class="contact-right fade-up">
+      <div class="card" style="background:#fff">
+        <h2>Additional Details</h2>
+        <p><strong>Hours:</strong> Monday–Friday 8:00–17:00 <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
+        <p><strong>Service Area:</strong> Within a 50-mile radius of central Gretna, Nebraska</p>
+        <h3>Direct Contacts</h3>
+        <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
+        <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
+        <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> — Kaden Wegner</p>
 
-      <div class="cards">
-        <article class="card reveal"><h3>Full-Roof Imaging</h3><p>Orthomosaic top-down and side-angle captures for every slope; consistent framing and naming.</p></article>
-        <article class="card reveal"><h3>Critical Detail Close-ups</h3><p>Metals, penetrations, terminations, seams, flashings, and skylights—shot lists that don’t miss.</p></article>
-        <article class="card reveal"><h3>Condition Summary</h3><p>Clear findings plus recommended next actions aligned to your goals (repair, replace, claim).</p></article>
-        <article class="card reveal"><h3>Evidence Package</h3><p>Labeled highlights plus a link to all unannotated originals for independent review.</p></article>
-        <article class="card reveal"><h3>Fast Delivery</h3><p>Turnaround measured in 24 to 48 hours; shareable download link for report and photos.</p></article>
-        <article class="card reveal"><h3>Commercial & Residential</h3><p>From single-family to large footprints—documented safely and consistently.</p></article>
+        <div id="officeMap" class="service-map"
+             data-lat="41.1398" data-lng="-96.2386" data-radius="80467"
+             aria-label="Map showing a 50-mile service radius centered on Gretna, Nebraska"></div>
       </div>
-    </div>
-  </section>
+    </aside>
+  </div>
+</section>
 
-  <!-- PROCESS -->
-  <section id="process" class="section light" style="background:#FFFFFF">
-    <div class="container">
-      <div class="reveal"><h2>How It Works</h2></div>
-      <div class="timeline">
-        <div class="step reveal"><strong>1. Schedule</strong><p class="muted">Pick a time; confirm access and restrictions.</p></div>
-        <div class="step reveal"><strong>2. Capture</strong><p class="muted">On-site flight plan; safe, consistent angles.</p></div>
-        <div class="step reveal"><strong>3. Review</strong><p class="muted">Sort, label, and summarize findings.</p></div>
-        <div class="step reveal"><strong>4. Deliver</strong><p class="muted">Shareable download link with originals and report.</p></div>
-      </div>
-    </div>
-  </section>
+<footer class="fade-up">
+  <div class="footer-grid">
+    <div class="foot-col"><strong>SkyGUARD</strong><p>Professional aerial roof documentation.</p></div>
+    <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support: Support@skyguard-services.com</div></div>
+    <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 • Commercially Insured</div></div>
+    <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Gretna, Nebraska</div></div>
+    <div class="foot-legal">© <span id="year"></span> SkyGUARD. All rights reserved.</div>
+  </div>
+</footer>
 
-  <!-- REPORT EXAMPLES -->
-  <section id="examples" class="section light">
-    <div class="container">
-      <div class="reveal"><h2>Report Examples</h2><p class="muted measure">A peek at how deliverables are structured—clear, consistent, and easy to review.</p></div>
-      <div class="examples">
-        <figure class="example reveal"><img src="assets/ResidentialExample1.png" alt="Residential report example cover page" loading="lazy" /><figcaption class="muted">Residential — Cover & contents</figcaption></figure>
-        <figure class="example reveal"><img src="assets/ResidentialExample2.png" alt="Residential report example damage detail page" loading="lazy" /><figcaption class="muted">Residential — Damage details</figcaption></figure>
-        <figure class="example reveal"><img src="assets/CommercialExample1.png" alt="Commercial report example cover page" loading="lazy" /><figcaption class="muted">Commercial — Cover & contents</figcaption></figure>
-        <figure class="example reveal"><img src="assets/CommercialExample2.png" alt="Commercial report example detail page" loading="lazy" /><figcaption class="muted">Commercial — Detail page</figcaption></figure>
-      </div>
-    </div>
-    <div id="lightbox" class="lightbox" aria-modal="true" role="dialog"><img id="lightboxImg" alt=""></div>
-  </section>
-
-  <!-- FAQ (desktop: two-column rail layout) -->
-  <section id="faq" class="section light" style="background:#F7F9FB">
-    <div class="container">
-      <div class="faq-title reveal"><h2>FAQ</h2></div>
-      <div class="faq-list reveal">
-        <details><summary>Are you licensed and insured?</summary><p>Yes. FAA Part 107 certified and commercially insured.</p></details>
-        <details><summary>How fast can you deliver?</summary><p>Often same-day; most jobs within 24–48 hours.</p></details>
-        <details><summary>What’s your service area?</summary><p>Within a 50-mile radius of central Omaha.</p></details>
-        <details><summary>How do I receive the files?</summary><p>Via a shareable download link to the full photo set and the report PDF.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT + ADDITIONAL DETAILS (Square embed + map) -->
-  <section id="contact" class="section light">
-    <div class="container">
-      <div class="contact-left reveal">
-        <h2>Contact Us</h2>
-
-        <!-- Booking (Square Appointments widget) -->
-        <div class="booking-card" style="margin-bottom:12px">
-          <h3>Schedule & Pay</h3>
-          <p class="muted measure">Choose Residential or Commercial in the widget below. Availability reflects your Google Calendar and time-off in Square.</p>
-          <!-- Start Square Appointments Embed Code -->
-          <script src='https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z.js'></script>
-          <!-- End Square Appointments Embed Code -->
-          <!-- Plain button fallback -->
-          <p style="margin-top:12px">
-            <a style=" background-color:#006aff; color:white; height:40px; text-transform:uppercase; font-family:'Square Market','helvetica neue',helvetica,arial,sans-serif; letter-spacing:1px; line-height:38px; padding:0 28px; border-radius:3px; font-weight:500; font-size:14px; cursor:pointer; display:inline-block;"
-               href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">
-              Book an appointment
-            </a>
-          </p>
-        </div>
-
-        <!-- Optional contact form -->
-        <form id="quoteForm" data-to="Support@skyguard-services.com" novalidate>
-          <div id="step1">
-            <div class="row">
-              <div><label for="name">Name</label><input id="name" name="name" placeholder="Your full name" required /></div>
-              <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" required /></div>
-            </div>
-            <div class="row">
-              <div><label for="phone">Phone</label><input id="phone" name="phone" placeholder="123 456 7890" /></div>
-              <div><label for="service">Service</label>
-                <select id="service" name="service">
-                  <option>Residential Roof Imaging</option>
-                  <option>Commercial Roof Imaging</option>
-                  <option>Storm Damage Documentation</option>
-                  <option>Insurance/Claim Photoset</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <button type="button" class="btn btn-primary" id="toStep2">Next</button>
-            <p class="form-legal">We’ll only use your info to respond to your inquiry.</p>
-          </div>
-
-          <div id="step2" style="display:none">
-            <div><label for="address">Property Address</label><input id="address" name="address" placeholder="Street, City, State" /></div>
-            <div><label for="message">Details</label><textarea id="message" name="message" placeholder="Roof age, leaks, wind/hail date, timing…"></textarea></div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap">
-              <button type="submit" class="btn btn-primary">Send</button>
-              <button type="button" class="btn btn-ghost" id="backStep">Back</button>
-            </div>
-            <p class="form-legal">Submitting opens your email app with a pre-filled message.</p>
-          </div>
-        </form>
-      </div>
-
-      <aside class="contact-right reveal">
-        <div class="card" style="background:#fff">
-          <h2 style="margin-top:0">Additional Details</h2>
-          <p><strong>Hours:</strong> Monday–Friday 8:00–17:00
-            <span class="muted">(varies by time of year due to decreased sunlight)</span>
-          </p>
-          <p><strong>Service Area:</strong> Within a 50-mile radius of central Omaha</p>
-          <div style="height:10px"></div>
-          <h3>Direct Contacts</h3>
-          <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
-          <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
-          <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> — Kaden Wegner</p>
-
-          <div id="officeMap" class="service-map" data-lat="41.2565" data-lng="-95.9345" data-radius="80467" aria-label="Map showing a 50-mile service radius centered on Omaha"></div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div class="foot-col"><strong>SkyGUARD</strong><p class="muted">Professional aerial roof documentation.</p></div>
-      <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support: Support@skyguard-services.com</div><div>Personal: Kaden@skyguard-services.com</div></div>
-      <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 • Commercially Insured</div></div>
-      <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Omaha</div></div>
-      <div class="foot-legal">© <span id="year"></span> SkyGUARD. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile menu
-    const menuBtn = document.getElementById('menuBtn');
-    const primaryNav = document.getElementById('primaryNav');
-    menuBtn.addEventListener('click', ()=>{
-      const open = primaryNav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+<script>
+  // Quick fade-in reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
+  },{threshold:.15});
+  document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 
-    // Reveal on scroll
-    const els = Array.from(document.querySelectorAll('.reveal'));
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          const i = els.indexOf(e.target);
-          e.target.style.transitionDelay = (i*40)+'ms';
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, {threshold:.12, rootMargin:"0px 0px -10% 0px"});
-    els.forEach(el=>io.observe(el));
+  // Mobile menu toggle
+  const menuBtn=document.getElementById('menuBtn');
+  menuBtn.addEventListener('click',()=>document.body.classList.toggle('nav-open'));
 
-    // Two-step form
-    const f = document.getElementById('quoteForm');
-    const s1 = document.getElementById('step1');
-    const s2 = document.getElementById('step2');
-    document.getElementById('toStep2').addEventListener('click', ()=>{ if(!f.reportValidity()) return; s1.style.display='none'; s2.style.display='block'; window.scrollTo({top:f.offsetTop-70, behavior:'smooth'}); });
-    document.getElementById('backStep').addEventListener('click', ()=>{ s2.style.display='none'; s1.style.display='block'; window.scrollTo({top:f.offsetTop-70, behavior:'smooth'}); });
-    f.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const to = f.dataset.to || 'Support@skyguard-services.com';
-      const d = new FormData(f);
-      const fields = { Name:d.get('name')||'', Email:d.get('email')||'', Phone:d.get('phone')||'', Service:d.get('service')||'', Address:d.get('address')||'', Details:d.get('message')||'' };
-      const subject = encodeURIComponent('Contact — ' + fields.Name);
-      const body = encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    });
+  // Map initialization
+  function initRadiusMap(){
+    const el=document.getElementById('officeMap');
+    if(!el||!window.L)return;
+    const lat=parseFloat(el.dataset.lat),lng=parseFloat(el.dataset.lng),r=parseFloat(el.dataset.radius);
+    const map=L.map(el,{scrollWheelZoom:true}).setView([lat,lng],10);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+    const c=L.circle([lat,lng],{radius:r,color:'#0A5CD8',weight:2,fillColor:'#0A5CD8',fillOpacity:.08}).addTo(map);
+    L.marker([lat,lng]).addTo(map).bindPopup('Central Gretna');
+    map.fitBounds(c.getBounds(),{padding:[18,18]});
+  }
+  window.addEventListener('load',initRadiusMap);
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 
-    // Lightbox
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    document.querySelectorAll('#examples img').forEach(img=>{
-      img.addEventListener('click', ()=>{ lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); });
-    });
-    lb.addEventListener('click', ()=> lb.classList.remove('open'));
-
-    // Map (Additional Details)
-    function initRadiusMap(elId){
-      const el = document.getElementById(elId);
-      if(!el || !window.L) return;
-      const lat = parseFloat(el.dataset.lat);
-      const lng = parseFloat(el.dataset.lng);
-      const radius = parseFloat(el.dataset.radius || 80467);
-      const map = L.map(el, {scrollWheelZoom:true}).setView([lat, lng], 10);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© OpenStreetMap'}).addTo(map);
-      const circle = L.circle([lat, lng], {radius, color:'#0A5CD8', weight:2, opacity:.9, fillColor:'#0A5CD8', fillOpacity:.08}).addTo(map);
-      L.marker([lat, lng]).addTo(map).bindPopup('Central Omaha');
-      map.fitBounds(circle.getBounds(), {padding:[18,18]});
-      setTimeout(()=>map.invalidateSize(), 0);
-      window.addEventListener('resize', ()=>map.fitBounds(circle.getBounds(), {padding:[18,18]}));
-    }
-
-    window.addEventListener('load', ()=>{
-      initRadiusMap('officeMap');
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
-  </script>
 </body>
 </html>
