@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — SkyGUARD</title>
+  <meta name="description" content="Frequently asked questions about SkyGUARD drone roof inspection services — licensing, delivery, service area, and more." />
+  <link rel="icon" type="image/png" href="../assets/SkyGUARD2.png">
+  <link rel="apple-touch-icon" href="../assets/SkyGUARD2.png">
+  <meta name="theme-color" content="#0A5CD8">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--accent:#0A5CD8;--bg-dark:#0B0B0C;--bg-light:#E9EDF1;--ink-dark:#0D0F12;--ink-light:#F3F4F6;--muted:#6B7280;--border-light:#D3DAE2;--maxw:1200px;--radius:16px;--shadow:0 6px 20px rgba(13,15,18,.08);--shadow-soft:0 2px 10px rgba(13,15,18,.06);}
+    *{box-sizing:border-box}html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg-light);color:var(--ink-dark);line-height:1.6;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+    img{max-width:100%;height:auto;display:block}a{color:inherit;text-decoration:none}
+    .fade-up{opacity:0;transform:translateY(14px);transition:opacity .15s ease-out,transform .15s ease-out;}.fade-up.visible{opacity:1;transform:translateY(0)}
+    .container{max-width:var(--maxw);margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr;gap:16px;}
+    @media(min-width:900px){.container{padding:24px;gap:24px;grid-template-columns:repeat(12,1fr)}}
+    h1{font-size:clamp(36px,7vw,64px);line-height:1.1;font-weight:700;margin:0 0 12px}
+    h2{font-size:clamp(24px,5vw,40px);line-height:1.2;font-weight:700;margin:0 0 10px}
+    p{margin:0 0 14px}.muted{color:var(--muted)}.measure{max-width:70ch}
+    header{position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);background:rgba(233,237,241,.88);border-bottom:1px solid var(--border-light);}
+    .nav{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;}
+    .brand{display:flex;align-items:center;gap:10px}.brand img{width:40px;height:40px;object-fit:contain}.brand .name{font-weight:700;letter-spacing:.2px}
+    .menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--border-light);background:#fff;cursor:pointer;}
+    @media(min-width:900px){.menu-toggle{display:none}}
+    .nav-links{display:none;position:fixed;left:0;right:0;top:64px;background:#fff;border-top:1px solid var(--border-light);box-shadow:0 2px 10px rgba(13,15,18,.06);padding:8px 16px;}
+    .nav-links a{display:block;padding:12px 8px;border-radius:8px}.nav-links a:hover{background:#f4f7fb}.nav-links a.active{font-weight:700;color:var(--accent)}.nav-links.open{display:block}
+    @media(min-width:900px){
+      .nav{grid-template-columns:1fr auto 1fr}
+      .nav-links{position:static;display:flex;background:transparent;box-shadow:none;padding:0;gap:24px;justify-content:center;}
+      .nav-links a{display:inline-block;padding:0;border-radius:0;position:relative}.nav-links a:hover{background:transparent}
+      .nav-links a::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-6px;height:2px;width:0;background:var(--accent);transition:width .18s ease;}
+      .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    }
+    .nav-cta{justify-self:end}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:600;letter-spacing:.2px;border:1px solid var(--border-light);transition:transform .05s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease,color .2s ease;white-space:nowrap}
+    .btn-primary{background:var(--accent);color:#fff;border-color:transparent;box-shadow:var(--shadow)}.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,92,216,.25)}
+    .btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}.btn-ghost:hover{transform:translateY(-1px);background:rgba(10,92,216,.06)}
+    .label-short{display:none}
+    @media(max-width:480px){.label-long{display:none}.label-short{display:inline}.nav-cta .btn{padding:8px 12px;font-size:14px;border-radius:10px}}
+    @media(max-width:360px){.brand .name{display:none}.brand img{width:34px;height:34px}.menu-toggle{width:36px;height:36px}.nav-cta .btn{padding:8px 10px;font-size:13px}}
+    .section{padding:48px 0}@media(min-width:900px){.section{padding:64px 0}}
+    .dark{background:var(--bg-dark);color:var(--ink-light)}.light{background:var(--bg-light);color:var(--ink-dark);border-top:1px solid var(--border-light)}
+    .section-title{grid-column:1/-1}
+    .cta-strip{grid-column:1/-1;background:var(--accent);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+    @media(min-width:900px){.cta-strip{flex-direction:row;align-items:center;justify-content:space-between;padding:32px 40px}}
+    .cta-strip h2,.cta-strip p{color:#fff;margin:0}.cta-strip p{opacity:.85}
+    .btn-white{background:#fff;color:var(--accent);border-color:transparent;box-shadow:var(--shadow)}.btn-white:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.15)}
+    footer{border-top:1px solid var(--border-light);padding:28px 16px;background:#E1E6EC}@media(min-width:900px){footer{padding:32px 24px}}
+    .footer-grid{max-width:var(--maxw);margin:0 auto;display:grid;gap:16px;grid-template-columns:1fr}@media(min-width:900px){.footer-grid{gap:24px;grid-template-columns:repeat(12,1fr)}}
+    .foot-col{grid-column:span 1}@media(min-width:900px){.foot-col{grid-column:span 3}}
+    .foot-legal{grid-column:1/-1;color:#5b626d;margin-top:8px}
+    /* Page-specific */
+    .hero-text{grid-column:1/-1}@media(min-width:900px){.hero-text{grid-column:1/span 8}}
+    .faq-title{grid-column:1/-1}.faq-list{grid-column:1/-1}
+    @media(min-width:900px){.faq-title{grid-column:1/span 3;align-self:start}.faq-list{grid-column:4/span 9;max-width:820px}}
+    .faq-list details{background:#fff;border:1px solid var(--border-light);border-radius:12px;padding:10px 14px;margin-bottom:12px;box-shadow:var(--shadow-soft)}
+    .faq-list summary{cursor:pointer;font-weight:600;outline:none;padding:4px 0}
+    .faq-list p{margin:10px 0 0}
+  </style>
+</head>
+<body>
+  <header class="fade-up">
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <div class="brand">
+        <img src="../assets/SkyGUARD2.png" alt="SkyGUARD logo" width="96" height="96" />
+        <div class="name">SkyGUARD</div>
+      </div>
+      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">&#9776;</button>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="tel:+15312339962"><span class="label-long">Call (531) 233-9962</span><span class="label-short">Call</span></a>
+      </div>
+    </nav>
+    <div id="primaryNav" class="nav-links">
+      <a href="/">Home</a>
+      <a href="/services">Services</a>
+      <a href="/gallery">Gallery</a>
+      <a href="/faq" class="active">FAQ</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
+    </div>
+  </header>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="hero-text fade-up">
+        <p style="color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;margin-bottom:8px">FAQ</p>
+        <h1>Common questions, answered.</h1>
+        <p style="color:var(--ink-light);max-width:60ch;opacity:.8">If you don't find what you're looking for here, reach out directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" style="background:#F7F9FB">
+    <div class="container">
+      <div class="faq-title fade-up"><h2>General</h2></div>
+      <div class="faq-list fade-up">
+        <details>
+          <summary>Are you licensed and insured?</summary>
+          <p>Yes. FAA Part 107 certified for commercial drone operations and carrying commercial liability insurance. A certificate of insurance is available upon request before any job.</p>
+        </details>
+        <details>
+          <summary>Can you fly near Offutt Air Force Base?</summary>
+          <p>Yes. We hold airspace authorization for operations within the controlled airspace surrounding Offutt AFB (KOFF) — an authorization most drone operators don't have.</p>
+        </details>
+        <details>
+          <summary>What's your service area?</summary>
+          <p>Within a 50-mile radius of central Gretna, Nebraska, which covers the full Omaha metro area and surrounding communities. Contact us if you're outside that range — we'll let you know if we can make it work.</p>
+        </details>
+        <details>
+          <summary>Do you work with both homeowners and contractors?</summary>
+          <p>Yes. We work with homeowners, roofing contractors, general contractors, property managers, and insurance adjusters. The deliverable format can be adjusted to fit your workflow.</p>
+        </details>
+      </div>
+
+      <div class="faq-title fade-up" style="margin-top:16px"><h2>Scheduling &amp; Delivery</h2></div>
+      <div class="faq-list fade-up">
+        <details>
+          <summary>How fast can you deliver?</summary>
+          <p>Often same-day. Most jobs are delivered within 24 hours. Turnaround depends on weather, job complexity, and current volume — we'll give you a clear estimate when you schedule.</p>
+        </details>
+        <details>
+          <summary>How do I receive the files?</summary>
+          <p>You'll receive a shareable download link containing the full photo set and the PDF report. No app required — the link works in any browser and can be forwarded to your adjuster, contractor, or client.</p>
+        </details>
+        <details>
+          <summary>What do you need from me to schedule?</summary>
+          <p>The property address, your preferred date and time window, and any access or site restrictions we should know about. That's it — we handle the rest.</p>
+        </details>
+        <details>
+          <summary>What happens if weather doesn't cooperate?</summary>
+          <p>We don't fly in conditions that would compromise image quality or safety. If weather forces a reschedule, we'll reach out promptly and find the next available window.</p>
+        </details>
+      </div>
+
+      <div class="faq-title fade-up" style="margin-top:16px"><h2>Reports &amp; Photos</h2></div>
+      <div class="faq-list fade-up">
+        <details>
+          <summary>Are the reports auto-generated?</summary>
+          <p>No. Every report is assembled by hand. Photos are reviewed, selected, labeled, and annotated personally before the report goes out. The finished document is meant to actually communicate something — not just be a photo dump.</p>
+        </details>
+        <details>
+          <summary>What does a typical report include?</summary>
+          <p>A cover page, property details, a condition summary with findings and recommended next steps, annotated highlight images, and a link to the complete unannotated photo set for independent review. See the Gallery page for examples.</p>
+        </details>
+        <details>
+          <summary>Can I get just the photos without a report?</summary>
+          <p>Yes. If you need a straight photo package without a written report, that's an option. Reach out and we'll put together the right deliverable for your situation.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div class="container">
+      <div class="cta-strip fade-up">
+        <div>
+          <h2>Still have questions?</h2>
+          <p>Reach out directly — we're happy to talk through your specific situation.</p>
+        </div>
+        <a class="btn btn-white" href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="fade-up">
+    <div class="footer-grid">
+      <div class="foot-col"><strong>SkyGUARD</strong><p class="muted">Professional aerial roof documentation.</p></div>
+      <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support@skyguard-services.com</div></div>
+      <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 &bull; Commercially Insured</div></div>
+      <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Gretna, Nebraska</div></div>
+      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD. All rights reserved.</div>
+    </div>
+  </footer>
+  <script>
+    const menuBtn=document.getElementById('menuBtn'),primaryNav=document.getElementById('primaryNav');
+    menuBtn.addEventListener('click',()=>{const o=primaryNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
+    const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:.05,rootMargin:"0px 0px -5% 0px"});
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('visible'));}
+    else{document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));}
+    document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
+  </script>
+</body>
+</html>
