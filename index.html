@@ -7,17 +7,14 @@
   <meta name="description" content="Professional drone roof inspections, condition reports, and documentation for residential and commercial properties around Gretna, Nebraska." />
   <meta name="robots" content="index,follow" />
 
-  <!-- Favicon using existing logo -->
   <link rel="icon" type="image/png" href="assets/SkyGUARD2.png">
   <link rel="apple-touch-icon" href="assets/SkyGUARD2.png">
   <meta name="theme-color" content="#0A5CD8">
 
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Leaflet (map) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
@@ -50,7 +47,6 @@
     img{max-width:100%; height:auto; display:block}
     a{color:inherit; text-decoration:none}
 
-    /* Fast fade-up reveal */
     .fade-up{
       opacity:0;
       transform:translateY(14px);
@@ -61,7 +57,6 @@
       transform:translateY(0);
     }
 
-    /* Container */
     .container{
       max-width:var(--maxw);
       margin:0 auto;
@@ -78,14 +73,12 @@
       }
     }
 
-    /* Type */
     h1{font-size:clamp(36px,7vw,64px);line-height:1.1;font-weight:700;margin:0 0 12px}
     h2{font-size:clamp(24px,5vw,40px);line-height:1.2;font-weight:700;margin:0 0 10px}
     p{margin:0 0 14px}
     .muted{color:var(--muted)}
     .measure{max-width:70ch}
 
-    /* Header / Nav */
     header{
       position:sticky; top:0; z-index:100;
       backdrop-filter:blur(10px);
@@ -156,13 +149,11 @@
       .nav-cta .btn{padding:8px 10px; font-size:13px}
     }
 
-    /* Sections */
     .section{padding:48px 0}
     @media (min-width:900px){ .section{padding:64px 0} }
     .dark{background:var(--bg-dark); color:var(--ink-light)}
     .light{background:var(--bg-light); color:var(--ink-dark); border-top:1px solid var(--border-light)}
 
-    /* Layout stacks */
     .hero__text,.hero__media,.contact-left,.contact-right{grid-column:1 / -1}
     @media (min-width:900px){
       .hero__text{grid-column:1 / span 7}
@@ -229,7 +220,6 @@
     .lightbox.open{display:flex}
     .lightbox img{max-width:90vw; max-height:90vh; border-radius:12px}
 
-    /* Forms */
     form{display:grid; gap:14px}
     @media (min-width:900px){ form{gap:16px} }
     label{font-size:14px; font-weight:600}
@@ -245,7 +235,6 @@
     .row{display:grid; gap:14px}
     @media (min-width:760px){.row{grid-template-columns:1fr 1fr}}
 
-    /* Booking card */
     .booking-card{
       background:#fff; border:1px solid var(--border-light);
       border-radius:16px; padding:18px; box-shadow:var(--shadow-soft)
@@ -253,7 +242,6 @@
     .booking-card h3{margin:0 0 6px}
     .booking-card p{margin:0 0 12px; color:var(--muted)}
 
-    /* Map */
     .service-map{
       width:100%; min-height:240px;
       border:1px solid var(--border-light);
@@ -261,7 +249,6 @@
     }
     @media (min-width:900px){ .service-map{min-height:340px} }
 
-    /* Footer */
     footer{border-top:1px solid var(--border-light); padding:28px 16px; background:#E1E6EC}
     @media (min-width:900px){ footer{padding:32px 24px} }
     .footer-grid{
@@ -273,7 +260,6 @@
     @media (min-width:900px){ .foot-col{grid-column:span 3} }
     .foot-legal{grid-column:1 / -1; color:#5b626d; margin-top:8px}
 
-    /* FAQ rail + wide content on desktop */
     .faq-title{grid-column:1 / -1}
     .faq-list{grid-column:1 / -1}
     @media (min-width:900px){
@@ -291,16 +277,13 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header id="siteHeader" class="fade-up">
     <nav class="nav" role="navigation" aria-label="Primary">
       <div class="brand">
         <img src="assets/SkyGUARD2.png" alt="SkyGUARD logo" width="96" height="96" />
         <div class="name">SkyGUARD</div>
       </div>
-
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">☰</button>
-
+      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle menu">&#9776;</button>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="tel:+15312339962">
           <span class="label-long">Call (531) 233-9962</span>
@@ -308,8 +291,6 @@
         </a>
       </div>
     </nav>
-
-    <!-- Links panel -->
     <div id="primaryNav" class="nav-links">
       <a href="/services">Services</a>
       <a href="/gallery">Gallery</a>
@@ -330,7 +311,7 @@
         </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px">
           <a class="btn btn-primary" href="#contact">Contact Us</a>
-          <a class="btn btn-ghost" href="#services">See What’s Included</a>
+          <a class="btn btn-ghost" href="#services">See What's Included</a>
         </div>
       </div>
 
@@ -339,7 +320,7 @@
           <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner — SkyGUARD" loading="eager" />
           <div>
             <div style="font-weight:700">Direct Line</div>
-            <div class="muted" style="margin-bottom:10px">Mon–Fri 8:00–17:00 (varies seasonally with daylight)</div>
+            <div class="muted" style="margin-bottom:10px">Mon&ndash;Fri 8:00&ndash;17:00 (varies seasonally with daylight)</div>
             <div style="display:flex; gap:10px; flex-wrap:wrap">
               <a class="btn btn-primary" href="tel:+15312339962">Call</a>
               <a class="btn btn-ghost" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
@@ -351,7 +332,7 @@
       <div class="cred fade-up">
         <div class="badge">FAA Part 107 Certified</div>
         <div class="badge">Commercial Liability Insured</div>
-        <div class="badge">Trusted by Contractors & Adjusters</div>
+        <div class="badge">Trusted by Contractors &amp; Adjusters</div>
       </div>
     </div>
   </section>
@@ -360,8 +341,8 @@
   <section id="services" class="section light">
     <div class="container">
       <div class="fade-up">
-        <h2>What’s Included</h2>
-        <p class="muted measure">High-resolution imaging and concise reporting designed to support decisions.</p>
+        <h2>What's Included</h2>
+        <p class="muted" style="max-width:min(600px, 100%)">High-resolution imaging and concise reporting designed to support decisions.</p>
       </div>
 
       <div class="cards">
@@ -371,7 +352,7 @@
         </article>
         <article class="card fade-up">
           <h3>Critical Detail Close-ups</h3>
-          <p>Metals, penetrations, terminations, seams, flashings, and skylights—shot lists that don’t miss.</p>
+          <p>Metals, penetrations, terminations, seams, flashings, and skylights&mdash;shot lists that don't miss.</p>
         </article>
         <article class="card fade-up">
           <h3>Condition Summary</h3>
@@ -386,8 +367,8 @@
           <p>Turnaround measured in hours; shareable download link for report and photos.</p>
         </article>
         <article class="card fade-up">
-          <h3>Commercial & Residential</h3>
-          <p>From single-family to large footprints—documented safely and consistently.</p>
+          <h3>Commercial &amp; Residential</h3>
+          <p>From single-family to large footprints&mdash;documented safely and consistently.</p>
         </article>
       </div>
     </div>
@@ -411,24 +392,24 @@
     <div class="container">
       <div class="fade-up">
         <h2>Report Examples</h2>
-        <p class="muted measure">A peek at how deliverables are structured—clear, consistent, and easy to review.</p>
+        <p class="muted" style="max-width:min(600px, 100%)">A peek at how deliverables are structured&mdash;clear, consistent, and easy to review.</p>
       </div>
       <div class="examples">
         <figure class="example fade-up">
           <img src="assets/ResidentialExample1.png" alt="Residential report example cover page" loading="lazy" />
-          <figcaption class="muted">Residential — Cover & contents</figcaption>
+          <figcaption class="muted">Residential &mdash; Cover &amp; contents</figcaption>
         </figure>
         <figure class="example fade-up">
           <img src="assets/ResidentialExample2.png" alt="Residential report example damage detail page" loading="lazy" />
-          <figcaption class="muted">Residential — Damage details</figcaption>
+          <figcaption class="muted">Residential &mdash; Damage details</figcaption>
         </figure>
         <figure class="example fade-up">
           <img src="assets/CommercialExample1.png" alt="Commercial report example cover page" loading="lazy" />
-          <figcaption class="muted">Commercial — Cover & contents</figcaption>
+          <figcaption class="muted">Commercial &mdash; Cover &amp; contents</figcaption>
         </figure>
         <figure class="example fade-up">
           <img src="assets/CommercialExample2.png" alt="Commercial report example detail page" loading="lazy" />
-          <figcaption class="muted">Commercial — Detail page</figcaption>
+          <figcaption class="muted">Commercial &mdash; Detail page</figcaption>
         </figure>
       </div>
     </div>
@@ -448,10 +429,10 @@
         </details>
         <details>
           <summary>How fast can you deliver?</summary>
-          <p>Often same-day; most jobs within 24–48 hours.</p>
+          <p>Often same-day; most jobs within 24&ndash;48 hours.</p>
         </details>
         <details>
-          <summary>What’s your service area?</summary>
+          <summary>What's your service area?</summary>
           <p>Within a 50-mile radius of central Gretna, Nebraska, including the Omaha metro.</p>
         </details>
         <details>
@@ -462,29 +443,24 @@
     </div>
   </section>
 
-  <!-- CONTACT + ADDITIONAL DETAILS -->
+  <!-- CONTACT -->
   <section id="contact" class="section light">
     <div class="container">
       <div class="contact-left fade-up">
         <h2>Contact Us</h2>
 
-        <!-- Booking (Square Appointments widget) -->
         <div class="booking-card" style="margin-bottom:12px">
-          <h3>Schedule & Pay</h3>
+          <h3>Schedule &amp; Pay</h3>
           <p class="muted measure">Choose Residential or Commercial in the widget below. Availability reflects your Google Calendar and time-off in Square.</p>
-          <!-- Start Square Appointments Embed Code -->
           <script src='https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z.js'></script>
-          <!-- End Square Appointments Embed Code -->
-          <!-- Plain button fallback -->
           <p style="margin-top:12px">
-            <a style=" background-color:#006aff; color:white; height:40px; text-transform:uppercase; font-family:'Square Market','helvetica neue',helvetica,arial,sans-serif; letter-spacing:1px; line-height:38px; padding:0 28px; border-radius:3px; font-weight:500; font-size:14px; cursor:pointer; display:inline-block;"
+            <a style="background-color:#006aff; color:white; height:40px; text-transform:uppercase; font-family:'Square Market','helvetica neue',helvetica,arial,sans-serif; letter-spacing:1px; line-height:38px; padding:0 28px; border-radius:3px; font-weight:500; font-size:14px; cursor:pointer; display:inline-block;"
                href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">
               Book an appointment
             </a>
           </p>
         </div>
 
-        <!-- Two-step contact form -->
         <form id="quoteForm" data-to="Support@skyguard-services.com" novalidate>
           <div id="step1">
             <div class="row">
@@ -514,7 +490,7 @@
               </div>
             </div>
             <button type="button" class="btn btn-primary" id="toStep2">Next</button>
-            <p class="form-legal">We’ll only use your info to respond to your inquiry.</p>
+            <p class="form-legal">We'll only use your info to respond to your inquiry.</p>
           </div>
 
           <div id="step2" style="display:none">
@@ -524,7 +500,7 @@
             </div>
             <div>
               <label for="message">Details</label>
-              <textarea id="message" name="message" placeholder="Roof age, leaks, wind/hail date, timing…"></textarea>
+              <textarea id="message" name="message" placeholder="Roof age, leaks, wind/hail date, timing&hellip;"></textarea>
             </div>
             <div style="display:flex; gap:10px; flex-wrap:wrap">
               <button type="submit" class="btn btn-primary">Send</button>
@@ -539,7 +515,7 @@
         <div class="card" style="background:#fff">
           <h2 style="margin-top:0">Additional Details</h2>
           <p>
-            <strong>Hours:</strong> Monday–Friday 8:00–17:00
+            <strong>Hours:</strong> Monday&ndash;Friday 8:00&ndash;17:00
             <span class="muted">(varies by time of year due to decreased sunlight)</span>
           </p>
           <p><strong>Service Area:</strong> Within a 50-mile radius of central Gretna, Nebraska</p>
@@ -547,7 +523,7 @@
           <h3>Direct Contacts</h3>
           <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
           <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
-          <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> — Kaden Wegner</p>
+          <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> &mdash; Kaden Wegner</p>
 
           <div id="officeMap" class="service-map"
                data-lat="41.1398" data-lng="-96.2386" data-radius="80467"
@@ -572,20 +548,19 @@
       </div>
       <div class="foot-col">
         <strong>Legal</strong>
-        <div>FAA Part 107 • Commercially Insured</div>
+        <div>FAA Part 107 &bull; Commercially Insured</div>
       </div>
       <div class="foot-col">
         <strong>Service Area</strong>
         <div>50-mile radius of central Gretna, Nebraska</div>
       </div>
       <div class="foot-legal">
-        © <span id="year"></span> SkyGUARD. All rights reserved.
+        &copy; <span id="year"></span> SkyGUARD. All rights reserved.
       </div>
     </div>
   </footer>
 
   <script>
-    // Mobile menu
     const menuBtn = document.getElementById('menuBtn');
     const primaryNav = document.getElementById('primaryNav');
     menuBtn.addEventListener('click', ()=>{
@@ -593,7 +568,6 @@
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
-    // Fast reveal (no big delay)
     const revealEls = Array.from(document.querySelectorAll('.fade-up'));
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
@@ -609,7 +583,6 @@
       revealEls.forEach(el=>io.observe(el));
     }
 
-    // Two-step form
     const form = document.getElementById('quoteForm');
     const s1 = document.getElementById('step1');
     const s2 = document.getElementById('step2');
@@ -641,7 +614,6 @@
       window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
     });
 
-    // Lightbox for examples
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lightboxImg');
     document.querySelectorAll('#examples img').forEach(img=>{
@@ -653,17 +625,16 @@
     });
     lb.addEventListener('click', ()=> lb.classList.remove('open'));
 
-    // Map (Additional Details)
     function initRadiusMap(elId){
       const el = document.getElementById(elId);
       if(!el || !window.L) return;
       const lat = parseFloat(el.dataset.lat);
       const lng = parseFloat(el.dataset.lng);
-      const radius = parseFloat(el.dataset.radius || 80467); // ~50 miles
+      const radius = parseFloat(el.dataset.radius || 80467);
       const map = L.map(el, {scrollWheelZoom:true}).setView([lat, lng], 10);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '© OpenStreetMap'
+        attribution: '&copy; OpenStreetMap'
       }).addTo(map);
       const circle = L.circle([lat, lng], {
         radius,
