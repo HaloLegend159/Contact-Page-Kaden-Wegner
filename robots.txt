@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skyguard-services.com/sitemap.xml
