@@ -79,6 +79,34 @@
     .hero-slideshow .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;}
     .hero-slideshow .slide.active{opacity:1}
     .hero-slideshow::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(11,11,12,.85) 0%,rgba(11,11,12,.60) 50%,rgba(11,11,12,.30) 100%);z-index:1;}
+
+    /* Split headline sizes */
+    .hero__title-main{font-size:clamp(34px,6vw,60px);line-height:1.1;font-weight:700;margin:0 0 6px}
+    .hero__title-sub{font-size:clamp(16px,2.6vw,26px);line-height:1.3;font-weight:500;opacity:.8;margin:0 0 16px}
+
+    /* Floating contact card */
+    .float-card{
+      position:fixed;right:20px;bottom:24px;z-index:200;
+      background:#fff;color:var(--ink-dark);
+      border:1px solid var(--border-light);
+      border-radius:var(--radius);
+      box-shadow:0 8px 32px rgba(13,15,18,.18);
+      padding:14px 16px;
+      width:220px;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .float-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(13,15,18,.22)}
+    .float-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .float-card-header img{width:40px;height:40px;border-radius:10px;object-fit:cover;flex-shrink:0}
+    .fc-name{font-weight:700;font-size:14px;line-height:1.2}
+    .fc-hours{font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px}
+    .float-card-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+    .float-card-btns a{display:flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:10px;font-weight:600;font-size:13px;border:1px solid var(--border-light);text-decoration:none;transition:background .15s ease}
+    .fc-call{background:var(--accent);color:#fff;border-color:transparent}.fc-call:hover{background:#0950c4}
+    .fc-email{background:transparent;color:var(--accent);border-color:var(--accent)}.fc-email:hover{background:rgba(10,92,216,.06)}
+    .fc-book{display:flex;align-items:center;justify-content:center;width:100%;padding:8px 10px;border-radius:10px;font-weight:600;font-size:13px;background:#0B0B0C;color:#fff;text-decoration:none;transition:background .15s ease}
+    .fc-book:hover{background:#2a2a2a}
+    @media(max-width:480px){.float-card{width:calc(100vw - 32px);right:16px;bottom:16px}}
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"LocalBusiness","name":"SkyGUARD Services","url":"https://skyguard-services.com","telephone":"+15312339962","email":"Support@skyguard-services.com","address":{"@type":"PostalAddress","addressLocality":"Gretna","addressRegion":"NE","addressCountry":"US"},"areaServed":"Omaha Metro, Nebraska","description":"Professional drone inspection and aerial documentation services for residential and commercial properties in the Omaha, Nebraska area."}
@@ -152,64 +180,21 @@
 
     <div class="container">
       <div class="hero__text fade-up">
-        <h1>Aerial inspections &amp; documentation, done right&mdash;fast, thorough, insured.</h1>
+        <h1 class="hero__title-main">Aerial inspections &amp; documentation,</h1>
+        <p class="hero__title-sub">done right&mdash;fast, thorough, insured.</p>
         <p class="muted measure" style="color:var(--ink-light)">
           Professional drone surveys and condition reports for any part of your property.
           Evidence-grade photosets, clear summaries, and rapid turnaround.
         </p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
           <a class="btn btn-primary" href="#contact">Contact Us</a>
-          <a class="btn btn-ghost" href="#services">See What's Included</a>
-        </div>
-      </div>
-      <div class="hero__media fade-up">
-        <div class="hero__card">
-          <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner — SkyGUARD" loading="eager" />
-          <div>
-            <div style="font-weight:700">Direct Line</div>
-            <div class="muted" style="margin-bottom:10px">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM (varies seasonally with daylight)</div>
-            <div style="display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn btn-primary" href="tel:+15312339962">Call</a>
-              <a class="btn btn-ghost" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
-            </div>
-          </div>
+          <a class="btn btn-ghost" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book Now</a>
         </div>
       </div>
       <div class="cred fade-up">
         <div class="badge">FAA Part 107 Certified</div>
         <div class="badge">Commercial Liability Insured</div>
         <div class="badge">Trusted by Contractors &amp; Adjusters</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT'S INCLUDED -->
-  <section id="services" class="section light">
-    <div class="container">
-      <div class="fade-up" style="grid-column:1/-1">
-        <h2>What's Included</h2>
-        <p class="muted" style="max-width:min(600px,100%)">High-resolution imaging and concise reporting designed to support decisions &mdash; roofs, structures, land, and more.</p>
-      </div>
-      <div class="cards">
-        <article class="card fade-up"><h3>Full-Property Imaging</h3><p>Orthomosaic top-down and side-angle captures of any area needed — roofs, structures, land, or the full property. Consistent framing and naming throughout.</p></article>
-        <article class="card fade-up"><h3>Critical Detail Close-ups</h3><p>Whatever needs a closer look — penetrations, seams, damage areas, structural features — shot lists tailored to your specific job.</p></article>
-        <article class="card fade-up"><h3>Condition Summary</h3><p>Clear findings plus recommended next actions aligned to your goals (repair, replace, claim).</p></article>
-        <article class="card fade-up"><h3>Evidence Package</h3><p>Labeled highlights plus a link to all unannotated originals for independent review.</p></article>
-        <article class="card fade-up"><h3>Fast Delivery</h3><p>Turnaround measured in hours; shareable download link for report and photos.</p></article>
-        <article class="card fade-up"><h3>Commercial &amp; Residential</h3><p>From single-family homes to large commercial properties&mdash;any structure, any scope, documented safely and consistently.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process" class="section light" style="background:#FFFFFF">
-    <div class="container">
-      <div class="fade-up"><h2>How It Works</h2></div>
-      <div class="timeline">
-        <div class="step fade-up"><strong>1. Schedule</strong><p class="muted">Pick a time; confirm access and restrictions.</p></div>
-        <div class="step fade-up"><strong>2. Capture</strong><p class="muted">On-site flight plan; safe, consistent angles.</p></div>
-        <div class="step fade-up"><strong>3. Review</strong><p class="muted">Sort, label, and summarize findings.</p></div>
-        <div class="step fade-up"><strong>4. Deliver</strong><p class="muted">Shareable download link with originals and report.</p></div>
       </div>
     </div>
   </section>
@@ -242,6 +227,37 @@
     </div>
     <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
       <img id="lightboxImg" alt="">
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section light" style="background:#FFFFFF">
+    <div class="container">
+      <div class="fade-up"><h2>How It Works</h2></div>
+      <div class="timeline">
+        <div class="step fade-up"><strong>1. Schedule</strong><p class="muted">Pick a time; confirm access and restrictions.</p></div>
+        <div class="step fade-up"><strong>2. Capture</strong><p class="muted">On-site flight plan; safe, consistent angles.</p></div>
+        <div class="step fade-up"><strong>3. Review</strong><p class="muted">Sort, label, and summarize findings.</p></div>
+        <div class="step fade-up"><strong>4. Deliver</strong><p class="muted">Shareable download link with originals and report.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section id="services" class="section light">
+    <div class="container">
+      <div class="fade-up" style="grid-column:1/-1">
+        <h2>What's Included</h2>
+        <p class="muted" style="max-width:min(600px,100%)">High-resolution imaging and concise reporting designed to support decisions &mdash; roofs, structures, land, and more.</p>
+      </div>
+      <div class="cards">
+        <article class="card fade-up"><h3>Full-Property Imaging</h3><p>Orthomosaic top-down and side-angle captures of any area needed — roofs, structures, land, or the full property. Consistent framing and naming throughout.</p></article>
+        <article class="card fade-up"><h3>Critical Detail Close-ups</h3><p>Whatever needs a closer look — penetrations, seams, damage areas, structural features — shot lists tailored to your specific job.</p></article>
+        <article class="card fade-up"><h3>Condition Summary</h3><p>Clear findings plus recommended next actions aligned to your goals (repair, replace, claim).</p></article>
+        <article class="card fade-up"><h3>Evidence Package</h3><p>Labeled highlights plus a link to all unannotated originals for independent review.</p></article>
+        <article class="card fade-up"><h3>Fast Delivery</h3><p>Turnaround measured in hours; shareable download link for report and photos.</p></article>
+        <article class="card fade-up"><h3>Commercial &amp; Residential</h3><p>From single-family homes to large commercial properties&mdash;any structure, any scope, documented safely and consistently.</p></article>
+      </div>
     </div>
   </section>
 
@@ -309,6 +325,22 @@
       certified, commercially insured, and authorized for Offutt AFB (KOFF) airspace.
     </p>
   </footer>
+
+  <!-- FLOATING CONTACT CARD -->
+  <div class="float-card">
+    <div class="float-card-header">
+      <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner" />
+      <div>
+        <div class="fc-name">Direct Line</div>
+        <div class="fc-hours">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM<br>(varies seasonally)</div>
+      </div>
+    </div>
+    <div class="float-card-btns">
+      <a class="fc-call" href="tel:+15312339962">Call</a>
+      <a class="fc-email" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
+    </div>
+    <a class="fc-book" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book Now</a>
+  </div>
 
   <script>
     // Mobile menu
