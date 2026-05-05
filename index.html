@@ -534,7 +534,11 @@
         dots[current].classList.add('active');
       }
 
-      function next() { goTo(current + 1); }
+      function next() {
+        let n;
+        do { n = Math.floor(Math.random() * slides.length); } while (n === current);
+        goTo(n);
+      }
 
       function resetTimer() {
         clearInterval(timer);
