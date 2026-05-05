@@ -42,7 +42,7 @@
     .nav-cta{justify-self:end}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:600;letter-spacing:.2px;border:1px solid var(--border-light);transition:transform .05s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease,color .2s ease;white-space:nowrap}
     .btn-primary{background:var(--accent);color:#fff;border-color:transparent;box-shadow:var(--shadow)}.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,92,216,.25)}
-    .btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}.btn-ghost:hover{transform:translateY(-1px);background:rgba(10,92,216,.06)}
+    .btn-ghost{background:#fff;color:var(--accent);border-color:var(--accent)}.btn-ghost:hover{transform:translateY(-1px);background:#f0f6ff}
     .label-short{display:none}
     @media(max-width:480px){.label-long{display:none}.label-short{display:inline}.nav-cta .btn{padding:8px 12px;font-size:14px;border-radius:10px}}
     @media(max-width:360px){.brand .name{display:none}.brand img{width:34px;height:34px}.menu-toggle{width:36px;height:36px}.nav-cta .btn{padding:8px 10px;font-size:13px}}
@@ -86,26 +86,25 @@
 
     /* Floating contact card */
     .float-card{
-      position:fixed;right:20px;bottom:24px;z-index:200;
+      position:fixed;right:24px;bottom:28px;z-index:200;
       background:#fff;color:var(--ink-dark);
       border:1px solid var(--border-light);
       border-radius:var(--radius);
-      box-shadow:0 8px 32px rgba(13,15,18,.18);
-      padding:14px 16px;
-      width:220px;
-      transition:transform .2s ease,box-shadow .2s ease;
+      box-shadow:0 4px 24px rgba(13,15,18,.12), 0 1px 4px rgba(13,15,18,.06);
+      padding:20px;
+      width:240px;
     }
-    .float-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(13,15,18,.22)}
-    .float-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-    .float-card-header img{width:40px;height:40px;border-radius:10px;object-fit:cover;flex-shrink:0}
-    .fc-name{font-weight:700;font-size:14px;line-height:1.2}
-    .fc-hours{font-size:11px;color:var(--muted);line-height:1.4;margin-top:2px}
-    .float-card-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
-    .float-card-btns a{display:flex;align-items:center;justify-content:center;padding:7px 10px;border-radius:10px;font-weight:600;font-size:13px;border:1px solid var(--border-light);text-decoration:none;transition:background .15s ease}
-    .fc-call{background:var(--accent);color:#fff;border-color:transparent}.fc-call:hover{background:#0950c4}
-    .fc-email{background:transparent;color:var(--accent);border-color:var(--accent)}.fc-email:hover{background:rgba(10,92,216,.06)}
-    .fc-book{display:flex;align-items:center;justify-content:center;width:100%;padding:8px 10px;border-radius:10px;font-weight:600;font-size:13px;background:#0B0B0C;color:#fff;text-decoration:none;transition:background .15s ease}
-    .fc-book:hover{background:#2a2a2a}
+    .float-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border-light)}
+    .float-card-top img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0}
+    .fc-name{font-weight:700;font-size:14px;color:var(--ink-dark);line-height:1.3}
+    .fc-role{font-size:12px;color:var(--muted);margin-top:1px}
+    .fc-hours{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+    .fc-actions{display:flex;flex-direction:column;gap:7px}
+    .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .fc-btn{display:flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:10px;font-weight:600;font-size:13px;text-decoration:none;letter-spacing:.1px;transition:transform .05s ease,box-shadow .15s ease,background .15s ease;border:1px solid transparent}
+    .fc-call{background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(10,92,216,.2)}.fc-call:hover{background:#0950c4;transform:translateY(-1px)}
+    .fc-email{background:#fff;color:var(--accent);border-color:var(--accent)}.fc-email:hover{background:#f0f6ff;transform:translateY(-1px)}
+    .fc-book{background:var(--ink-dark);color:#fff;box-shadow:0 2px 8px rgba(13,15,18,.15)}.fc-book:hover{background:#222;transform:translateY(-1px)}
     @media(max-width:480px){.float-card{width:calc(100vw - 32px);right:16px;bottom:16px}}
   </style>
   <script type="application/ld+json">
@@ -328,18 +327,21 @@
 
   <!-- FLOATING CONTACT CARD -->
   <div class="float-card">
-    <div class="float-card-header">
+    <div class="float-card-top">
       <img src="assets/skyguard-headshot.jpg" alt="Kaden Wegner" />
       <div>
-        <div class="fc-name">Direct Line</div>
-        <div class="fc-hours">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM<br>(varies seasonally)</div>
+        <div class="fc-name">SkyGUARD Services</div>
+        <div class="fc-role">Kaden Wegner &mdash; Lead Pilot</div>
       </div>
     </div>
-    <div class="float-card-btns">
-      <a class="fc-call" href="tel:+15312339962">Call</a>
-      <a class="fc-email" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
+    <div class="fc-hours">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM<br>(varies seasonally with daylight)</div>
+    <div class="fc-actions">
+      <div class="fc-row">
+        <a class="fc-btn fc-call" href="tel:+15312339962">Call</a>
+        <a class="fc-btn fc-email" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
+      </div>
+      <a class="fc-btn fc-book" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book an Appointment</a>
     </div>
-    <a class="fc-book" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book Now</a>
   </div>
 
   <script>
@@ -370,28 +372,54 @@
     });
     lb.addEventListener('click', ()=>lb.classList.remove('open'));
 
-    // Slideshow — sequential, no dots
+    // Slideshow — sequential, skips missing images
     (function(){
-      const slides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
-      let current = 0;
-      let timer;
+      const allSlides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
+      let slides = [];
+      let loaded = 0;
 
-      function goTo(n) {
-        slides[current].classList.remove('active');
-        current = (n + slides.length) % slides.length;
-        slides[current].classList.add('active');
+      // Test each slide image, keep only ones that load
+      allSlides.forEach(slide => {
+        const url = slide.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
+        const img = new Image();
+        img.onload = () => {
+          slides.push(slide);
+          loaded++;
+          if(loaded === allSlides.length) init();
+        };
+        img.onerror = () => {
+          slide.parentNode.removeChild(slide);
+          loaded++;
+          if(loaded === allSlides.length) init();
+        };
+        img.src = url;
+      });
+
+      function init() {
+        if(slides.length === 0) return;
+        // Sort by original DOM order
+        slides.sort((a,b) => allSlides.indexOf(a) - allSlides.indexOf(b));
+        // Make sure first is active
+        slides.forEach(s => s.classList.remove('active'));
+        slides[0].classList.add('active');
+        let current = 0;
+        let timer;
+
+        function goTo(n) {
+          slides[current].classList.remove('active');
+          current = (n + slides.length) % slides.length;
+          slides[current].classList.add('active');
+        }
+
+        function next() { goTo(current + 1); }
+
+        function resetTimer() {
+          clearInterval(timer);
+          timer = setInterval(next, 8000);
+        }
+
+        resetTimer();
       }
-
-      function next() {
-        goTo(current + 1);
-      }
-
-      function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(next, 8000);
-      }
-
-      resetTimer();
     })();
 
     // Map
