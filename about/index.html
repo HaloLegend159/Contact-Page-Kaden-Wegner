@@ -3,16 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — SkyGUARD</title>
-  <meta name="description" content="Contact SkyGUARD to schedule a drone inspection or documentation service — call, email, or use the booking widget." />
+  <title>About — SkyGUARD</title>
+  <meta name="description" content="Meet Kaden Wegner, co-founder of SkyGUARD professional aerial inspection and documentation services." />
   <link rel="icon" type="image/png" href="../assets/SkyGUARD2.png">
   <link rel="apple-touch-icon" href="../assets/SkyGUARD2.png">
   <meta name="theme-color" content="#0A5CD8">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
-  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <style>
     :root{--accent:#0A5CD8;--bg-dark:#0B0B0C;--bg-light:#E9EDF1;--ink-dark:#0D0F12;--ink-light:#F3F4F6;--muted:#6B7280;--border-light:#D3DAE2;--maxw:1200px;--radius:16px;--shadow:0 6px 20px rgba(13,15,18,.08);--shadow-soft:0 2px 10px rgba(13,15,18,.06);}
     *{box-sizing:border-box}html,body{height:100%}
@@ -48,26 +46,30 @@
     @media(max-width:360px){.brand .name{display:none}.brand img{width:34px;height:34px}.menu-toggle{width:36px;height:36px}.nav-cta .btn{padding:8px 10px;font-size:13px}}
     .section{padding:48px 0}@media(min-width:900px){.section{padding:64px 0}}
     .dark{background:var(--bg-dark);color:var(--ink-light)}.light{background:var(--bg-light);color:var(--ink-dark);border-top:1px solid var(--border-light)}
+    .cards{grid-column:1/-1;display:grid;gap:16px}@media(min-width:900px){.cards{gap:24px;grid-template-columns:repeat(3,1fr)}}
+    .cards-2{grid-column:1/-1;display:grid;gap:16px}@media(min-width:900px){.cards-2{gap:24px;grid-template-columns:repeat(2,1fr)}}
     .card{background:#fff;border:1px solid var(--border-light);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-soft)}@media(min-width:900px){.card{padding:24px}}
+    .section-title{grid-column:1/-1}
+    .cta-strip{grid-column:1/-1;background:var(--accent);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+    @media(min-width:900px){.cta-strip{flex-direction:row;align-items:center;justify-content:space-between;padding:32px 40px}}
+    .cta-strip h2,.cta-strip p{color:#fff;margin:0}.cta-strip p{opacity:.85}
+    .btn-white{background:#fff;color:var(--accent);border-color:transparent;box-shadow:var(--shadow)}.btn-white:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,0,0,.15)}
     footer{border-top:1px solid var(--border-light);padding:28px 16px;background:#E1E6EC}@media(min-width:900px){footer{padding:32px 24px}}
     .footer-grid{max-width:var(--maxw);margin:0 auto;display:grid;gap:16px;grid-template-columns:1fr}@media(min-width:900px){.footer-grid{gap:24px;grid-template-columns:repeat(12,1fr)}}
     .foot-col{grid-column:span 1}@media(min-width:900px){.foot-col{grid-column:span 3}}
     .foot-legal{grid-column:1/-1;color:#5b626d;margin-top:8px}
     /* Page-specific */
-    .hero-text{grid-column:1/-1}@media(min-width:900px){.hero-text{grid-column:1/span 8}}
-    .contact-left,.contact-right{grid-column:1/-1}
-    @media(min-width:900px){.contact-left{grid-column:1/span 6}.contact-right{grid-column:7/span 6}}
-    
-    
-    
-    
-    
-    
-    
-    .booking-card{background:#fff;border:1px solid var(--border-light);border-radius:16px;padding:18px;box-shadow:var(--shadow-soft);margin-bottom:12px}
-    .booking-card h3{margin:0 0 6px}.booking-card p{margin:0 0 12px;color:var(--muted)}
-    .service-map{width:100%;min-height:240px;border:1px solid var(--border-light);border-radius:12px;overflow:hidden;margin-top:10px}
-    @media(min-width:900px){.service-map{min-height:340px}}
+    .hero-text,.hero-photo{grid-column:1/-1}
+    @media(min-width:900px){.hero-text{grid-column:1/span 7}.hero-photo{grid-column:9/span 4;justify-self:end;align-self:center}}
+    .photo-card{background:#1a1c1f;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.4);}
+    .photo-card img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;}
+    .photo-card-footer{padding:14px 16px;display:flex;flex-direction:column;gap:2px;}
+    .photo-card-footer .pname{font-weight:700;color:var(--ink-light)}.photo-card-footer .role{font-size:13px;color:rgba(243,244,246,.5)}
+    .cred{grid-column:1/-1;display:flex;gap:12px;flex-wrap:wrap;align-items:center;opacity:.92}
+    .badge{display:flex;align-items:center;gap:8px;color:inherit;padding:6px 10px;border:1px solid currentColor;border-radius:10px;font-size:13px;opacity:.88}
+    @media(min-width:900px){.cred{gap:32px}.badge{padding:8px 12px;border-radius:12px;font-size:14px}}
+    .bio-text{grid-column:1/-1}@media(min-width:900px){.bio-text{grid-column:1/span 8}}
+    .equip-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 
     /* SLIDESHOW */
     .section.dark{position:relative}.section.dark .container{position:relative;z-index:2}
@@ -108,52 +110,145 @@
       <a href="/services">Services</a>
       <a href="/gallery">Gallery</a>
       <a href="/faq">FAQ</a>
-      <a href="/contact" class="active">Contact</a>
-      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/about" class="active">About</a>
     </div>
   </header>
 
   <section class="section dark">
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="slide active" style="background-image:url('../assets/slide1.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide2.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide3.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide4.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide5.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide6.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide7.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide8.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide9.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide10.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide11.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide12.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide13.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide14.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide15.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide16.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide17.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide18.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide19.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide20.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide21.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide22.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide23.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide24.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide25.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide26.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide27.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide28.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide29.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide30.jpg')"></div>
+    </div>
     <div class="container">
       <div class="hero-text fade-up">
-        <p style="color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;margin-bottom:8px">Contact</p>
-        <h1>Get in touch.</h1>
-        <p style="color:var(--ink-light);max-width:60ch;opacity:.8">Use the booking widget to schedule directly, or reach out and we'll get back to you.</p>
+        <p style="color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;margin-bottom:8px">About SkyGUARD</p>
+        <h1>Built on precision, trust, and a passion for the work.</h1>
+        <p style="color:var(--ink-light);max-width:60ch;opacity:.8">SkyGUARD was founded to bring professional-grade aerial documentation to homeowners, contractors, and adjusters who need clear answers fast — without putting anyone at risk.</p>
+      </div>
+      <div class="hero-photo fade-up">
+        <div class="photo-card">
+          <img src="../assets/skyguard-headshot.jpg" alt="Kaden Wegner — Co-Founder, SkyGUARD" loading="eager" />
+          <div class="photo-card-footer">
+            <span class="pname">Kaden Wegner</span>
+            <span class="role">Co-Founder &amp; Lead Pilot</span>
+          </div>
+        </div>
+      </div>
+      <div class="cred fade-up">
+        <div class="badge">FAA Part 107 Certified</div>
+        <div class="badge">Commercial Liability Insured</div>
+        <div class="badge">Offutt AFB (KOFF) Airspace Cleared</div>
       </div>
     </div>
   </section>
 
   <section class="section light">
     <div class="container">
-      <div class="contact-left fade-up">
-        <h2>Schedule &amp; Contact</h2>
-
-        <div class="booking-card">
-          <h3>Schedule &amp; Pay</h3>
-          <p>Choose Residential or Commercial in the widget below.</p>
-          <script src='https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z.js'></script>
-          <p style="margin-top:12px">
-            <a style="background-color:#006aff;color:white;height:40px;text-transform:uppercase;font-family:'Square Market','helvetica neue',helvetica,arial,sans-serif;letter-spacing:1px;line-height:38px;padding:0 28px;border-radius:3px;font-weight:500;font-size:14px;cursor:pointer;display:inline-block;"
-               href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">
-              Book an appointment
-            </a>
-          </p>
-        </div>
+      <div class="bio-text fade-up">
+        <h2>Background</h2>
+        <p class="measure">Aviation has been a constant thread throughout my life. I'm currently working toward my Private Pilot Certificate — a goal that grew naturally from years of hands-on work in and around aircraft. That passion for flight led me to enlist as a Chinook Helicopter Mechanic (15-U) with the Nebraska Army National Guard, where I work on one of the most capable heavy-lift helicopters in the U.S. military.</p>
+        <p class="measure">I'm Kaden Wegner, co-founder of SkyGUARD. Growing up with a hands-on technical background — from aircraft systems to software development — I've always been drawn to solving real problems with precision tools.</p>
+        <p class="measure">My time in the Guard has taught me that documentation isn't optional. In aviation maintenance, a record that's unclear or incomplete can have real consequences. I brought that same standard to roof inspections — every photo labeled, every finding summarized, every deliverable shareable and professionally structured.</p>
+        <p class="measure">I'm also a co-owner of Service Affiliates Nebraska, focused on property damage documentation and contracting. That experience working directly with contractors and adjusters showed me a gap: the industry needed faster, safer, and more consistent aerial documentation. SkyGUARD is my answer to that gap.</p>
       </div>
+    </div>
+  </section>
 
-      <aside class="contact-right fade-up">
-        <div class="card">
-          <h2 style="margin-top:0">Additional Details</h2>
-          <p><strong>Hours:</strong> Monday&ndash;Friday 8:00&ndash;17:00 <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
-          <p><strong>Service Area:</strong> Within a 50-mile radius of central Gretna, Nebraska</p>
-          <div style="height:10px"></div>
-          <h3>Direct Contacts</h3>
-          <p><strong>Phone:</strong> <a href="tel:+15312339962">(531) 233-9962</a></p>
-          <p><strong>Customer Service:</strong> <a href="mailto:Support@skyguard-services.com">Support@skyguard-services.com</a></p>
-          <p><strong>Personal:</strong> <a href="mailto:Kaden@skyguard-services.com">Kaden@skyguard-services.com</a> &mdash; Kaden Wegner</p>
-          <div id="officeMap" class="service-map" data-lat="41.1398" data-lng="-96.2386" data-radius="80467" aria-label="Map showing 50-mile service radius centered on Gretna, Nebraska"></div>
+  <section class="section light" style="background:#fff">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Credentials</h2>
+        <p class="muted measure">Qualified, insured, and authorized to operate where others can't.</p>
+      </div>
+      <div class="cards">
+        <article class="card fade-up">
+          <div class="equip-label">Certification</div>
+          <h3>FAA Part 107 Certified</h3>
+          <p class="muted">Federal certification required for all commercial drone operations in the United States. Covers airspace regulations, weather minimums, and operational safety requirements.</p>
+        </article>
+        <article class="card fade-up">
+          <div class="equip-label">Insurance</div>
+          <h3>Commercial Liability Insured</h3>
+          <p class="muted">Every flight is covered. Contractors and property owners can request a certificate of insurance prior to any job.</p>
+        </article>
+        <article class="card fade-up">
+          <div class="equip-label">Airspace Authorization</div>
+          <h3>Offutt AFB (KOFF) Cleared</h3>
+          <p class="muted">Authorized to operate within the controlled airspace surrounding Offutt Air Force Base — an authorization most operators don't hold.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light" style="background:#F7F9FB">
+    <div class="container">
+      <div class="section-title fade-up">
+        <h2>Equipment</h2>
+        <p class="muted measure">Professional hardware and a hands-on approach to every deliverable.</p>
+      </div>
+      <div class="cards-2">
+        <article class="card fade-up">
+          <div class="equip-label">Primary Aircraft</div>
+          <h3>DJI Air 3</h3>
+          <p class="muted" style="margin:0">Dual-camera platform with a 1/1.3" CMOS main sensor, 48MP stills, 4K60 video, and omnidirectional obstacle sensing. Compact enough for residential work, capable enough for large commercial roofs.</p>
+        </article>
+        <article class="card fade-up">
+          <div class="equip-label">Imaging</div>
+          <h3>High-Resolution Stills</h3>
+          <p class="muted" style="margin:0">48MP captures on every flight. Orthomosaic top-down, slope-angle, and close-up detail shots — consistent framing and naming on every job so nothing gets lost in review.</p>
+        </article>
+        <article class="card fade-up">
+          <div class="equip-label">Reporting</div>
+          <h3>Hand-Built PDF Reports</h3>
+          <p class="muted" style="margin:0">Every report is put together personally — not auto-generated. Photos are selected, labeled, and annotated by hand so the finished document actually communicates something useful.</p>
+        </article>
+        <article class="card fade-up">
+          <div class="equip-label">Pre-Flight</div>
+          <h3>Airspace &amp; Regulatory Compliance</h3>
+          <p class="muted" style="margin:0">Before every flight we confirm we're clear of restricted or controlled airspace and that our operations are fully compliant with current FAA regulations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light">
+    <div class="container">
+      <div class="cta-strip fade-up">
+        <div>
+          <h2>Ready to schedule an inspection?</h2>
+          <p>Fast turnaround, professional documentation, no ladders required.</p>
         </div>
-      </aside>
+        <a class="btn btn-white" href="/contact">Get in Touch</a>
+      </div>
     </div>
   </section>
 
@@ -163,7 +258,7 @@
       <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support@skyguard-services.com</div></div>
       <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 &bull; Commercially Insured</div></div>
       <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Gretna, Nebraska</div></div>
-      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD. All rights reserved.</div>
+      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD Services. All rights reserved.</div>
     </div>
   </footer>
   <script>
@@ -172,28 +267,7 @@
     const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:.05,rootMargin:"0px 0px -5% 0px"});
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('visible'));}
     else{document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));}
-    const form=document.getElementById('quoteForm'),s1=document.getElementById('step1'),s2=document.getElementById('step2');
-    document.getElementById('toStep2').addEventListener('click',()=>{if(!form.reportValidity())return;s1.style.display='none';s2.style.display='block';window.scrollTo({top:form.offsetTop-70,behavior:'smooth'});});
-    document.getElementById('backStep').addEventListener('click',()=>{s2.style.display='none';s1.style.display='block';window.scrollTo({top:form.offsetTop-70,behavior:'smooth'});});
-    form.addEventListener('submit',e=>{
-      e.preventDefault();
-      const to=form.dataset.to||'Support@skyguard-services.com',d=new FormData(form);
-      const fields={Name:d.get('name')||'',Email:d.get('email')||'',Phone:d.get('phone')||'',Service:d.get('service')||'',Address:d.get('address')||'',Details:d.get('message')||''};
-      const subject=encodeURIComponent('Contact — '+fields.Name);
-      const body=encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
-      window.location.href=`mailto:${to}?subject=${subject}&body=${body}`;
-    });
-    function initRadiusMap(elId){
-      const el=document.getElementById(elId);if(!el||!window.L)return;
-      const lat=parseFloat(el.dataset.lat),lng=parseFloat(el.dataset.lng),radius=parseFloat(el.dataset.radius||80467);
-      const map=L.map(el,{scrollWheelZoom:true}).setView([lat,lng],10);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
-      const circle=L.circle([lat,lng],{radius,color:'#0A5CD8',weight:2,opacity:.9,fillColor:'#0A5CD8',fillOpacity:.08}).addTo(map);
-      L.marker([lat,lng]).addTo(map).bindPopup('Central Gretna');
-      map.fitBounds(circle.getBounds(),{padding:[18,18]});
-      setTimeout(()=>map.invalidateSize(),0);
-      window.addEventListener('resize',()=>{map.fitBounds(circle.getBounds(),{padding:[18,18]});});
-    }
+
     // Slideshow — sequential, skips missing images
     (function(){
       const allSlides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
@@ -219,7 +293,26 @@
       }
     })();
 
-    window.addEventListener('load',()=>{initRadiusMap('officeMap');document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());});
+    document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
   </script>
+
+  <!-- FLOATING CONTACT CARD -->
+  <div class="float-card">
+    <div class="float-card-top">
+      <img src="../assets/skyguard-headshot.jpg" alt="Kaden Wegner" />
+      <div>
+        <div class="fc-name">SkyGUARD Services</div>
+        <div class="fc-role">Kaden Wegner &mdash; Lead Pilot</div>
+      </div>
+    </div>
+    <div class="fc-hours">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM<br>(varies seasonally with daylight)</div>
+    <div class="fc-actions">
+      <div class="fc-row">
+        <a class="fc-btn fc-call" href="tel:+15312339962">Call</a>
+        <a class="fc-btn fc-email" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
+      </div>
+      <a class="fc-btn fc-book" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book an Appointment</a>
+    </div>
+  </div>
 </body>
 </html>
