@@ -40,7 +40,7 @@
     .nav-cta{justify-self:end}
     .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;font-weight:600;letter-spacing:.2px;border:1px solid var(--border-light);transition:transform .05s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease,color .2s ease;white-space:nowrap}
     .btn-primary{background:var(--accent);color:#fff;border-color:transparent;box-shadow:var(--shadow)}.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(10,92,216,.25)}
-    .btn-ghost{background:transparent;color:var(--accent);border-color:var(--accent)}.btn-ghost:hover{transform:translateY(-1px);background:rgba(10,92,216,.06)}
+    .btn-ghost{background:#fff;color:var(--accent);border-color:var(--accent)}.btn-ghost:hover{transform:translateY(-1px);background:#f0f6ff}
     .label-short{display:none}
     @media(max-width:480px){.label-long{display:none}.label-short{display:inline}.nav-cta .btn{padding:8px 12px;font-size:14px;border-radius:10px}}
     @media(max-width:360px){.brand .name{display:none}.brand img{width:34px;height:34px}.menu-toggle{width:36px;height:36px}.nav-cta .btn{padding:8px 10px;font-size:13px}}
@@ -70,6 +70,27 @@
     @media(min-width:900px){.cred{gap:32px}.badge{padding:8px 12px;border-radius:12px;font-size:14px}}
     .bio-text{grid-column:1/-1}@media(min-width:900px){.bio-text{grid-column:1/span 8}}
     .equip-label{font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+
+    /* SLIDESHOW */
+    .section.dark{position:relative}.section.dark .container{position:relative;z-index:2}
+    .hero-slideshow{position:absolute;inset:0;z-index:0;overflow:hidden;}
+    .hero-slideshow .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.4s ease-in-out;}
+    .hero-slideshow .slide.active{opacity:1}
+    .hero-slideshow::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(11,11,12,.85) 0%,rgba(11,11,12,.60) 50%,rgba(11,11,12,.30) 100%);z-index:1;}
+    /* FLOATING CARD */
+    .float-card{position:fixed;right:24px;bottom:28px;z-index:200;background:#fff;color:var(--ink-dark);border:1px solid var(--border-light);border-radius:var(--radius);box-shadow:0 4px 24px rgba(13,15,18,.12),0 1px 4px rgba(13,15,18,.06);padding:20px;width:240px;}
+    .float-card-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border-light)}
+    .float-card-top img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0}
+    .fc-name{font-weight:700;font-size:14px;color:var(--ink-dark);line-height:1.3}
+    .fc-role{font-size:12px;color:var(--muted);margin-top:1px}
+    .fc-hours{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5}
+    .fc-actions{display:flex;flex-direction:column;gap:7px}
+    .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+    .fc-btn{display:flex;align-items:center;justify-content:center;padding:9px 12px;border-radius:10px;font-weight:600;font-size:13px;text-decoration:none;letter-spacing:.1px;transition:transform .05s ease,box-shadow .15s ease,background .15s ease;border:1px solid transparent}
+    .fc-call{background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(10,92,216,.2)}.fc-call:hover{background:#0950c4;transform:translateY(-1px)}
+    .fc-email{background:#fff;color:var(--accent);border-color:var(--accent)}.fc-email:hover{background:#f0f6ff;transform:translateY(-1px)}
+    .fc-book{background:var(--ink-dark);color:#fff;box-shadow:0 2px 8px rgba(13,15,18,.15)}.fc-book:hover{background:#222;transform:translateY(-1px)}
+    @media(max-width:480px){.float-card{width:calc(100vw - 32px);right:16px;bottom:16px}}
   </style>
 </head>
 <body>
@@ -205,16 +226,8 @@
       <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support@skyguard-services.com</div></div>
       <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 &bull; Commercially Insured</div></div>
       <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Gretna, Nebraska</div></div>
-      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD Services. All rights reserved.</div>
+      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD. All rights reserved.</div>
     </div>
-  <p style="font-size:13px;color:var(--muted);margin-top:32px;max-width:var(--maxw);margin-left:auto;margin-right:auto;padding:0 16px 24px">
-      SkyGUARD Services provides professional drone inspections and aerial documentation 
-      throughout the Omaha metro area including Gretna, Bellevue, Papillion, La Vista, 
-      Elkhorn, Millard, Ralston, and surrounding communities in eastern Nebraska. 
-      Services include drone roof inspections, storm damage documentation, aerial photography, 
-      property surveys, insurance photo sets, and commercial inspections. FAA Part 107 
-      certified, commercially insured, and authorized for Offutt AFB (KOFF) airspace.
-    </p>
   </footer>
   <script>
     const menuBtn=document.getElementById('menuBtn'),primaryNav=document.getElementById('primaryNav');
@@ -222,6 +235,32 @@
     const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:.05,rootMargin:"0px 0px -5% 0px"});
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('visible'));}
     else{document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));}
+
+    // Slideshow — sequential, skips missing images
+    (function(){
+      const allSlides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
+      let slides = [];
+      let loaded = 0;
+      allSlides.forEach(slide => {
+        const url = slide.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
+        const img = new Image();
+        img.onload = () => { slides.push(slide); loaded++; if(loaded===allSlides.length) init(); };
+        img.onerror = () => { if(slide.parentNode) slide.parentNode.removeChild(slide); loaded++; if(loaded===allSlides.length) init(); };
+        img.src = url;
+      });
+      function init() {
+        if(slides.length===0) return;
+        slides.sort((a,b)=>allSlides.indexOf(a)-allSlides.indexOf(b));
+        slides.forEach(s=>s.classList.remove('active'));
+        slides[0].classList.add('active');
+        let current=0, timer;
+        function goTo(n){slides[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');}
+        function next(){goTo(current+1);}
+        function resetTimer(){clearInterval(timer);timer=setInterval(next,8000);}
+        resetTimer();
+      }
+    })();
+
     document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
   </script>
 </body>
