@@ -53,22 +53,13 @@
     .footer-grid{max-width:var(--maxw);margin:0 auto;display:grid;gap:16px;grid-template-columns:1fr}@media(min-width:900px){.footer-grid{gap:24px;grid-template-columns:repeat(12,1fr)}}
     .foot-col{grid-column:span 1}@media(min-width:900px){.foot-col{grid-column:span 3}}
     .foot-legal{grid-column:1/-1;color:#5b626d;margin-top:8px}
-    /* Page-specific */
     .hero-text{grid-column:1/-1}@media(min-width:900px){.hero-text{grid-column:1/span 8}}
     .contact-left,.contact-right{grid-column:1/-1}
     @media(min-width:900px){.contact-left{grid-column:1/span 6}.contact-right{grid-column:7/span 6}}
-    
-    
-    
-    
-    
-    
-    
     .booking-card{background:#fff;border:1px solid var(--border-light);border-radius:16px;padding:18px;box-shadow:var(--shadow-soft);margin-bottom:12px}
     .booking-card h3{margin:0 0 6px}.booking-card p{margin:0 0 12px;color:var(--muted)}
     .service-map{width:100%;min-height:240px;border:1px solid var(--border-light);border-radius:12px;overflow:hidden;margin-top:10px}
     @media(min-width:900px){.service-map{min-height:340px}}
-
     /* SLIDESHOW */
     .section.dark{position:relative}.section.dark .container{position:relative;z-index:2}
     .hero-slideshow{position:absolute;inset:0;z-index:0;overflow:hidden;}
@@ -114,6 +105,38 @@
   </header>
 
   <section class="section dark">
+    <div class="hero-slideshow" id="heroSlideshow">
+      <div class="slide active" style="background-image:url('../assets/slide1.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide2.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide3.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide4.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide5.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide6.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide7.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide8.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide9.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide10.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide11.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide12.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide13.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide14.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide15.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide16.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide17.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide18.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide19.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide20.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide21.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide22.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide23.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide24.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide25.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide26.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide27.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide28.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide29.jpg')"></div>
+      <div class="slide" style="background-image:url('../assets/slide30.jpg')"></div>
+    </div>
     <div class="container">
       <div class="hero-text fade-up">
         <p style="color:var(--accent);font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:13px;margin-bottom:8px">Contact</p>
@@ -127,7 +150,6 @@
     <div class="container">
       <div class="contact-left fade-up">
         <h2>Schedule &amp; Contact</h2>
-
         <div class="booking-card">
           <h3>Schedule &amp; Pay</h3>
           <p>Choose Residential or Commercial in the widget below.</p>
@@ -140,11 +162,10 @@
           </p>
         </div>
       </div>
-
       <aside class="contact-right fade-up">
         <div class="card">
           <h2 style="margin-top:0">Additional Details</h2>
-          <p><strong>Hours:</strong> Monday&ndash;Friday 8:00&ndash;17:00 <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
+          <p><strong>Hours:</strong> Monday&ndash;Friday 8:00 AM&ndash;5:00 PM <span class="muted">(varies by time of year due to decreased sunlight)</span></p>
           <p><strong>Service Area:</strong> Within a 50-mile radius of central Gretna, Nebraska</p>
           <div style="height:10px"></div>
           <h3>Direct Contacts</h3>
@@ -163,26 +184,59 @@
       <div class="foot-col"><strong>Contact</strong><div>Phone: (531) 233-9962</div><div>Support@skyguard-services.com</div></div>
       <div class="foot-col"><strong>Legal</strong><div>FAA Part 107 &bull; Commercially Insured</div></div>
       <div class="foot-col"><strong>Service Area</strong><div>50-mile radius of central Gretna, Nebraska</div></div>
-      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD. All rights reserved.</div>
+      <div class="foot-legal">&copy; <span class="year"></span> SkyGUARD Services. All rights reserved.</div>
     </div>
   </footer>
+
+  <!-- FLOATING CONTACT CARD -->
+  <div class="float-card">
+    <div class="float-card-top">
+      <img src="../assets/skyguard-headshot.jpg" alt="Kaden Wegner" />
+      <div>
+        <div class="fc-name">SkyGUARD Services</div>
+        <div class="fc-role">Kaden Wegner &mdash; Lead Pilot</div>
+      </div>
+    </div>
+    <div class="fc-hours">Mon&ndash;Fri 8:00 AM&ndash;5:00 PM<br>(varies seasonally with daylight)</div>
+    <div class="fc-actions">
+      <div class="fc-row">
+        <a class="fc-btn fc-call" href="tel:+15312339962">Call</a>
+        <a class="fc-btn fc-email" href="mailto:Support@skyguard-services.com?subject=Inspection%20Request">Email</a>
+      </div>
+      <a class="fc-btn fc-book" href="https://app.squareup.com/appointments/buyer/widget/so3y08si1942r5/LQYH7KAF81N8Z" target="_blank" rel="noopener">Book an Appointment</a>
+    </div>
+  </div>
+
   <script>
     const menuBtn=document.getElementById('menuBtn'),primaryNav=document.getElementById('primaryNav');
     menuBtn.addEventListener('click',()=>{const o=primaryNav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',o?'true':'false');});
     const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:.05,rootMargin:"0px 0px -5% 0px"});
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.fade-up').forEach(el=>el.classList.add('visible'));}
     else{document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));}
-    const form=document.getElementById('quoteForm'),s1=document.getElementById('step1'),s2=document.getElementById('step2');
-    document.getElementById('toStep2').addEventListener('click',()=>{if(!form.reportValidity())return;s1.style.display='none';s2.style.display='block';window.scrollTo({top:form.offsetTop-70,behavior:'smooth'});});
-    document.getElementById('backStep').addEventListener('click',()=>{s2.style.display='none';s1.style.display='block';window.scrollTo({top:form.offsetTop-70,behavior:'smooth'});});
-    form.addEventListener('submit',e=>{
-      e.preventDefault();
-      const to=form.dataset.to||'Support@skyguard-services.com',d=new FormData(form);
-      const fields={Name:d.get('name')||'',Email:d.get('email')||'',Phone:d.get('phone')||'',Service:d.get('service')||'',Address:d.get('address')||'',Details:d.get('message')||''};
-      const subject=encodeURIComponent('Contact — '+fields.Name);
-      const body=encodeURIComponent(Object.entries(fields).map(([k,v])=>`${k}: ${v}`).join('\n'));
-      window.location.href=`mailto:${to}?subject=${subject}&body=${body}`;
-    });
+
+    // Slideshow — sequential, skips missing images
+    (function(){
+      const allSlides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
+      let slides = [], loaded = 0;
+      allSlides.forEach(slide => {
+        const url = slide.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
+        const img = new Image();
+        img.onload = () => { slides.push(slide); loaded++; if(loaded===allSlides.length) init(); };
+        img.onerror = () => { if(slide.parentNode) slide.parentNode.removeChild(slide); loaded++; if(loaded===allSlides.length) init(); };
+        img.src = url;
+      });
+      function init() {
+        if(!slides.length) return;
+        slides.sort((a,b)=>allSlides.indexOf(a)-allSlides.indexOf(b));
+        slides.forEach(s=>s.classList.remove('active'));
+        slides[0].classList.add('active');
+        let current=0, timer;
+        function goTo(n){slides[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');}
+        function resetTimer(){clearInterval(timer);timer=setInterval(()=>goTo(current+1),8000);}
+        resetTimer();
+      }
+    })();
+
     function initRadiusMap(elId){
       const el=document.getElementById(elId);if(!el||!window.L)return;
       const lat=parseFloat(el.dataset.lat),lng=parseFloat(el.dataset.lng),radius=parseFloat(el.dataset.radius||80467);
@@ -194,32 +248,10 @@
       setTimeout(()=>map.invalidateSize(),0);
       window.addEventListener('resize',()=>{map.fitBounds(circle.getBounds(),{padding:[18,18]});});
     }
-    // Slideshow — sequential, skips missing images
-    (function(){
-      const allSlides = Array.from(document.querySelectorAll('.hero-slideshow .slide'));
-      let slides = [];
-      let loaded = 0;
-      allSlides.forEach(slide => {
-        const url = slide.style.backgroundImage.replace(/url\(['"]?|['"]?\)/g, '');
-        const img = new Image();
-        img.onload = () => { slides.push(slide); loaded++; if(loaded===allSlides.length) init(); };
-        img.onerror = () => { if(slide.parentNode) slide.parentNode.removeChild(slide); loaded++; if(loaded===allSlides.length) init(); };
-        img.src = url;
-      });
-      function init() {
-        if(slides.length===0) return;
-        slides.sort((a,b)=>allSlides.indexOf(a)-allSlides.indexOf(b));
-        slides.forEach(s=>s.classList.remove('active'));
-        slides[0].classList.add('active');
-        let current=0, timer;
-        function goTo(n){slides[current].classList.remove('active');current=(n+slides.length)%slides.length;slides[current].classList.add('active');}
-        function next(){goTo(current+1);}
-        function resetTimer(){clearInterval(timer);timer=setInterval(next,8000);}
-        resetTimer();
-      }
-    })();
-
-    window.addEventListener('load',()=>{initRadiusMap('officeMap');document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());});
+    window.addEventListener('load',()=>{
+      initRadiusMap('officeMap');
+      document.querySelectorAll('.year').forEach(el=>el.textContent=new Date().getFullYear());
+    });
   </script>
 </body>
 </html>
